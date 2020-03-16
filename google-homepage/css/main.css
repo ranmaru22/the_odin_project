@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #222;
+    height: 100%;
+}
+
+#headerNav {
+    padding: 15px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.headerNavLink {
+    color: #222;
+    font-size: 14px;
+    opacity: .75;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.headerNavLink:hover {
+    text-decoration: underline;
+}
+
+.userIcon {
+    background-color: #0000a0;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 100%;
+}
+.userIcon:hover {
+    text-decoration: none;
+}
+
+.fa-th {
+    opacity: 70%;
+    font-size: 18px;
+}
+.fa-th:hover {
+    opacity: 90%;
+    text-decoration: none;
+}
+
+#main {
+    padding-top: 170px;
+    text-align: center;
+}
+
+#searchField {
+    background-color: transparent;
+    border: 1px solid #c6c6c6;
+    border-radius: 50px;
+    font-size: 16px;
+    line-height: 34px;
+    height: 48px !important;
+    min-width: 400px;
+    margin: 18px auto;
+    padding: 0 50px;
+}
+#searchField:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+.fa-search {
+    position: relative;
+    left: 40px;
+    opacity: 50%;
+}
+.fa-microphone {
+    position: relative;
+    right: 40px;
+    color: #4885ed;
+}
+
+.searchButton {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    color: #5F6368;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    cursor: pointer;
+}
+.searchButton:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+    border: 1px solid #c6c6c6;
+    color: #222;
+}
+
+#logo {
+    height: 92px;
+    width: auto;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0 20px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    line-height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.footerLink {
+    color: #222;
+    opacity: .75;
+    padding: 0 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+.footerLink:hover {
+    text-decoration: underline;
+}
