@@ -2,7 +2,36 @@
 <html>
 
 <head>
-  <script src="./script/rps.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <script src="./script/rps-ui.js"></script>
 </head>
+
+<body>
+
+  <h1>Rock, Paper, Scissors</h1>
+  <main>
+    <div id="pScore">
+      <p>Player Score: <span class="scoreNum">0</span></p>
+    </div>
+    <div id="cScore">
+      <p>Computer Score: <span class="scoreNum">0</span></p>
+    </div>
+    <div id="player">
+      <p></p>
+    </div>
+    <div id="computer">
+      <p></p>
+    </div>
+    <div id="results">
+      <p></p>
+    </div>
+    <div id="buttons">
+      <button id="rockBtn" class="choice" value="rock">Rock</button>
+      <button id="paperBtn" class="choice" value="paper">Paper</button>
+      <button id="scissorsBtn" class="choice" value="scissors">Scissors</button>
+    </div>
+  </main>
+
+</body>
 
 </html>

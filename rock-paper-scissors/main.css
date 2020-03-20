@@ -1,0 +1,56 @@
+body {
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 3px 3px 5px #666;
+}
+
+main {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 25px 100px 25px 25px;
+    column-gap: 25px;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+#pScore {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#cScore {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#player, #computer {
+    font-size: 2em;
+}
+
+#player {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+#computer {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+#results {
+    grid-column: 1 / span 2;
+    grid-row: 3 / 4;
+    font-size: 16px;
+}
+
+#buttons {
+    margin-top: 50px;
+    font-size: 18px;
+    grid-column: 1 / span 2;
+    grid-row: 4 / 5;
+}
