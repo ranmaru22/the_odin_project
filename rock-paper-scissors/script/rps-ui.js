@@ -53,6 +53,26 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
     return [ret, result, playerSelection, computerSelection];
 }
 
+function isGameOver(playerScore, computerScore) {
+    if (playerScore === 5) {
+        alert("Congratulations, you win!");
+        return true;
+    } else if (computerScore === 5) {
+        alert("Sorry, you lose. Better luck next time.");
+        return true;
+    }
+    return false;
+}
+
+function clearScreen() {
+    const playerArea = document.querySelector("#player>p");
+    playerArea.textContent = "";
+    const compArea = document.querySelector("#computer>p");
+    compArea.textContent = "";
+    const resultDisplay = document.querySelector("#results>p");
+    resultDisplay.textContent = "";
+}
+
 function displayResults(results) {
     const playerArea = document.querySelector("#player>p");
     playerArea.textContent = results[2];
@@ -66,9 +86,14 @@ function showScores(results) {
     const pScore = document.querySelector("#pScore>p>.scoreNum");
     const cScore = document.querySelector("#cScore>p>.scoreNum");
     if (results[1] === 1) {
-        pScore.textContent++;
+        ++pScore.textContent;
     } else if (results[1] === -1) {
-        cScore.textContent++;
+        ++cScore.textContent;
+    }
+    if (isGameOver(Number(pScore.textContent), Number(cScore.textContent))) {
+        pScore.textContent = 0;
+        cScore.textContent = 0;
+        clearScreen();
     }
 }
 
