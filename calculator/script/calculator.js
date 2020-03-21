@@ -13,7 +13,7 @@ class Operations {
         "/": 2,
         "+": 1,
         "-": 1
-    }
+    };
 
     static calcAdd(a, b) { return a + b; }
     static calcSub(a, b) { return a - b; }
