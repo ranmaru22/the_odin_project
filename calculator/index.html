@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Calculator</title>
+
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <script type="application/javascript" src="./script/calculator.js"></script>
+
+</head>
+
+<body>
+
+  <h1>JavaScript Calculator</h1>
+
+  <main>
+    <div id="container">
+      <!-- First row: display only !-->
+      <div id="displayContainer">
+        <div id="history"></div>
+        <div id="display"></div>
+      </div>
+      <!-- Second row: function buttons !-->
+      <div class="unselectable btn funcBtn" id="clear" data-val="c">C</div>
+      <div class="unselectable btn funcBtn" id="del" data-val="d">⌫</div>
+      <div class="unselectable btn operatorBtn" id="exponent" data-val="^">x<sup>y</sup></div>
+      <div class="unselectable btn operatorBtn" id="divide" data-val="/">÷</div>
+      <!-- Third row !-->
+      <div class="unselectable btn numBtn" id="num7" data-val="7">7</div>
+      <div class="unselectable btn numBtn" id="num8" data-val="8">8</div>
+      <div class="unselectable btn numBtn" id="num9" data-val="9">9</div>
+      <div class="unselectable btn operatorBtn" id="multiply" data-val="*">×</div>
+      <!-- Fourth row !-->
+      <div class="unselectable btn numBtn" id="num4" data-val="4">4</div>
+      <div class="unselectable btn numBtn" id="num5" data-val="5">5</div>
+      <div class="unselectable btn numBtn" id="num6" data-val="6">6</div>
+      <div class="unselectable btn operatorBtn" id="subtract" data-val="-">-</div>
+      <!-- Fifth row !-->
+      <div class="unselectable btn numBtn" id="num1" data-val="1">1</div>
+      <div class="unselectable btn numBtn" id="num2" data-val="2">2</div>
+      <div class="unselectable btn numBtn" id="num3" data-val="3">3</div>
+      <div class="unselectable btn operatorBtn" id="add" data-val="+">+</div>
+      <!-- Sixth row !-->
+      <div class="unselectable btn funcBtn" id="plusminus" data-val="pm">±</div>
+      <div class="unselectable btn numBtn" id="num0" data-val="0">0</div>
+      <div class="unselectable btn numBtn" id="numPeriod" data-val=".">.</div>
+      <div class="unselectable btn operatorBtn" id="equal" data-val="=">=</div>
+    </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerLeft">
+      <p>Built for Web Development 101</p>
+      <p><a href="https://www.theodinproject.com" target="_blank">The Odin Project</a></p>
+    </div>
+    <div class="footerRight">
+      <p><a href="https://github.com/ranmaru22/the_odin_project/tree/master/calculator"
+          target="_blank">
+          <img src="./icons/GitHub-Mark-Light-32px.png" alt="GitHub" />
+        </a></p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
