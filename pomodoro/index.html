@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tomato Clock</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="application/javascript" src="./script/pomodoro.js"></script>
+  <link type="text/css" rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <h1>Tomato Timer</h1>
+
+  <main>
+    <div id="settings">
+      <div id="setWorkTime">
+        <h2>WORK</h2>
+        <p class="settings">
+          <i id="decWorkTime" class="button material-icons">chevron_left</i>
+          <span id="currWorkTime" class="setupText">15</span>
+          <i id="incWorkTime" class="button material-icons">chevron_right</i>
+        </p>
+      </div>
+      <div id="setBreakTime">
+        <h2>BREAK</h2>
+        <p class="settings">
+          <i id="decBreakTime" class="button material-icons">chevron_left</i>
+          <span id="currBreakTime" class="setupText">5</span>
+          <i id="incBreakTime" class="button material-icons">chevron_right</i>
+        </p>
+      </div>
+      <div id="setCycles">
+        <h2>CYCLES</h2>
+        <p class="settings">
+          <i id="decCycles" class="button material-icons">chevron_left</i>
+          <span id="currCycles" class="setupText">4</span>
+          <i id="incCycles" class="button material-icons">chevron_right</i>
+        </p>
+      </div>
+    </div>
+
+    <div id="clock">
+      <div id="controls">
+        <div id="startButton"><i class=" material-icons button">
+            play_arrow</i></div>
+        <div id="pauseButton" class="hidden"><i class="material-icons button">
+            pause</i></div>
+        <div id="stopButton"><i class="material-icons button">
+            replay</i></div>
+      </div>
+      <div id="timer">15:00</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerLeft">
+      <p>Built for Web Development 101</p>
+      <p><a href="https://www.theodinproject.com" target="_blank">The Odin Project</a></p>
+    </div>
+    <div class="footerRight">
+      <p><a href="https://github.com/ranmaru22/the_odin_project/tree/master/pomodoro"
+          target="_blank">
+          <img src="./images/GitHub-Mark-Light-32px.png" alt="GitHub" />
+        </a></p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
