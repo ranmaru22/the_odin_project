@@ -43,8 +43,13 @@ main {
 }
 
 #timer {
-    padding-top: 15px;
     font-size: 100px;
+}
+
+#timerInfo {
+    font-family: "Pacifico", cursive;
+    padding-top: 15px;
+    font-size: 28px;
 }
 
 .settings > span {

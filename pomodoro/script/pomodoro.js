@@ -74,27 +74,27 @@ function timeHandler(workTimer, breakTimer, cycles, timerSpace) {
     let onBreak = false;
     let breakTime = breakTimer.getTotalTime();
     let currentCycle = 0;
+    const textInfo = this.document.querySelector("#timerInfo");
 
     return function () {
         if (!onPause) {
             if (!onBreak) {
+                textInfo.textContent = "get to work!";
                 workTimer.decrease();
                 timerSpace.textContent = workTimer.getTimeString();
                 if (workTimer.getSecondsRemaining() === 0) {
                     workTimer.reset();
                     currentCycle++;
                     onBreak = true;
-                    console.log("Change to break timer");
                 }
             } else {
+                textInfo.textContent = "take a break";
                 breakTimer.decrease();
                 timerSpace.textContent = breakTimer.getTimeString();
                 if (breakTimer.getSecondsRemaining() === 0) {
                     breakTimer.updateTime(breakTime);
                     breakTimer.reset();
                     onBreak = false;
-                    console.log("Change to work timer");
-                    console.log("Current cycle:", currentCycle, "of", cycles);
                 }
             }
             if (currentCycle === cycles) {
@@ -129,6 +129,7 @@ function startTimer(workTime, breakTime, cycles) {
 function pauseTimer() {
     swapStartPause();
     onPause = true;
+    this.document.querySelector("#timerInfo").textContent = "paused";
 }
 
 function stopTimer() {
@@ -136,6 +137,7 @@ function stopTimer() {
     clearInterval(intervalTimer);
     const timerDisplay = this.document.querySelector("#timer");
     timerDisplay.textContent = `${workTime.toString().padStart(2, "0")}:00`;
+    this.document.querySelector("#timerInfo").textContent = "stopped";
     startButton.classList.remove("hidden");
     pauseButton.classList.add("hidden");
 }
