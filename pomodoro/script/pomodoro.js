@@ -1,7 +1,7 @@
 // Global variables
 var onPause = false;
 var stopped = true;
-var workTime = 15;
+var workTime = 25;
 var breakTime = 5;
 var cycles = 4;
 var intervalTimer;
