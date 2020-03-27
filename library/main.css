@@ -1,0 +1,166 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#addDialog {
+    background-color: #efefef;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #333;
+    width: 250px;
+    padding: 15px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -100px;
+    z-index: 100;
+    transition: all .2s ease-in-out;
+}
+
+#closeAddDialog {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    margin-top: 5px;
+    font-variant: small-caps;
+    text-decoration: none;
+    color: #000;
+}
+
+#addButton {
+    position: relative;
+    top: -50px;
+    float: right;
+    box-shadow: inset 0px 1px 0px 0px #9acc85;
+	background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+	background-color: #74ad5a;
+	border:1px solid  #3b6e22;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 6px 12px;
+	text-decoration: none;
+}
+
+#addButton:hover {
+	background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+	background-color: #68a54b;
+}
+#addButton:active {
+	position: relative;
+	top: -49px;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#addDialog form {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 1px
+}
+
+#addDialog form .label {
+    justify-self: start;
+}
+
+#addDialog form .checkbox {
+    justify-self: center;
+}
+
+#addDialog form .button, #addDialog form .field {
+    justify-self: center;
+    grid-column: 1 / span 2;
+}
+
+#addDialog form input[type=text], #addDialog form input[type=number] {
+    width: 200px;
+    background-color: transparent; 
+    border-style: solid; 
+    border-width: 0px 0px 1px 0px; 
+    border-color: #000;
+}
+
+#shelf {
+    clear: both;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.book {
+    width: 160px;
+    height: 250px;
+    padding: 0 10px;
+    margin: 10px;
+    background-color: #efefef;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #333;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+}
+
+.bookTitle {
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+.deleteButton {
+    position: absolute;
+    right: 7px;
+    top: -5px;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    margin-top: 5px;
+    font-variant: small-caps;
+    text-decoration: none;
+    color: #000;
+}
+
+.book:hover .deleteButton {
+    opacity: 1;
+    z-index: 99;
+    position: absolute;
+    top: 0px;
+}
+
+.bookAuthor {
+    margin: 0;
+}
+
+.bookPages {
+    position: absolute;
+    bottom: 32px;
+    font-size: 12px;
+    align-self: flex-end;
+}
+
+.bookRead {
+    align-self: flex-end;
+    background-color: #20db33;
+    margin: 0 -10px;
+    padding: 10px 10px;
+    border-radius: 0 0 5px 5px;
+    border-top: 1px solid black;
+    font-size: 14px;
+    font-variant: small-caps;
+    width: 100%;
+}
+
+.notRead {
+    background-color: #db5820;
+}
+
+.bookRead:after {
+    content: "read";
+}
+
+.notRead:before {
+    content: "not ";
+}

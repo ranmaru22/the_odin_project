@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Library Project</title>
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <script type="application/javascript" src="./library.js"></script>
+</head>
+
+<body>
+  <h1 id="pageTitle">My Library</h1>
+
+  <div id="addButton">Add Book</div>
+
+  <div id="addDialog" class="hidden">
+    <h2>Add a title</h2>
+    <a id="closeAddDialog" href="#">X</a>
+    <form id="addBook" for="addBook">
+      <p class="field"><input type="text" id="titleField" placeholder="Title" /></p>
+      <p class="field"><input type="text" id="authorField" placeholder="Author" /></p>
+      <p class="field"><input type="number" id="pagesField" placeholder="Pages" /></p>
+      <p class="label">Have you finished this book?</p>
+      <p class="checkbox"><input type="checkbox" id="readField" /></p>
+      <p class="button"><input type="submit" name="save" value="Save to Library" /></p>
+    </form>
+  </div>
+
+  <main>
+    <div id="shelf"></div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyASHPQxnXYwCy4b87GCwZGY3Bj1LXTwDz4",
+      authDomain: "odin-project-library-b07a3.firebaseapp.com",
+      databaseURL: "https://odin-project-library-b07a3.firebaseio.com",
+      projectId: "odin-project-library-b07a3",
+      storageBucket: "odin-project-library-b07a3.appspot.com",
+      messagingSenderId: "1039477128419",
+      appId: "1:1039477128419:web:8d5b27e74cdc96db63d9d6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</body>
+
+</html>
