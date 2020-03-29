@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Tic-Tac-Toe</title>
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap"
+    rel="stylesheet">
+  <script type="application/javascript" src="./script/script.js"></script>
+</head>
+
+<body>
+  <h1>Tic-Tac-Toe</h1>
+  <main>
+    <form for="gameSetup" id="gameSetup">
+      <input type="text" id="p1name" placeholder="Player 1" /><br />
+      <input type="text" id="p2name" placeholder="Player 2" /><br />
+      <input type="checkbox" id="againstAi" />Play against AI<br />
+      <input type="submit" id="startGame" value="Start Game">
+    </form>
+
+    <div id="gameboard"></div>
+  </main>
+
+  <div id="cover" class="hidden"></div>
+  <div id="winMessage" class="hidden"></div>
+
+</body>
+
+</html>

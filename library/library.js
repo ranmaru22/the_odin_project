@@ -36,7 +36,6 @@ function processSubmitForm(e) {
 
 function removeFromLibrary(e) {
     const book = e.target.parentElement;
-    console.log(book);
     if (confirm(`Remove ${myLibrary.get(book.getAttribute("data-value")).title} from your library?`)) {
         myLibrary.delete(book.getAttribute("data-value"));
         book.parentElement.removeChild(book);

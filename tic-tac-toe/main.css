@@ -1,0 +1,132 @@
+body, html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    text-align: center;
+}
+
+#gameSetup input[type=text] {
+    margin: 10px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #333;
+}
+
+#gameSetup input[type=checkbox] {
+    margin: 10px;
+}
+
+#gameSetup input[type=submit] {
+    margin: 10px;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Courier New;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 42px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+#gameSetup input[type=submit]:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+#gameSetup input[type=submit]:active {
+	position:relative;
+	top:1px;
+}
+
+#gameboard {
+    margin: 0 auto;
+    display: grid;
+    width: 450px;
+    height: 450px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background:rgba(0, 0, 0, .6);
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+}
+
+#winMessage {
+    position: fixed;
+    text-align: center;
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #222;
+    padding: 20px;
+    top: 35%;
+    left: 50%;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-size: 86px;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    z-index: 99;
+}
+
+.hidden {
+    display: none;
+}
+
+.cell {
+    font-size: 108px;
+    border-radius: 5%;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: stretch;
+    height: 150px;
+}
+
+.taken1 {
+    background-color: orangered;
+}
+
+.taken2 {
+    background-color: rgb(204, 204, 255);
+}
+
+#cell0, #cell1, #cell2 {
+    border-bottom: 1px solid black;
+}
+
+#cell3, #cell4, #cell5 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#cell6, #cell7, #cell8 {
+    border-top: 1px solid black;
+}
+
+#cell0, #cell3, #cell6 {
+    border-right: 1px solid black;
+}
+
+#cell1, #cell4, #cell7 {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#cell2, #cell5, #cell8 {
+    border-left: 1px solid black;
+}
