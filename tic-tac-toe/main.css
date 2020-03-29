@@ -76,7 +76,7 @@ main {
     padding: 20px;
     top: 35%;
     left: 50%;
-    font-family: 'Liu Jian Mao Cao', cursive;
+    font-family: 'Caveat', cursive;
     font-size: 86px;
     transform: translate(-50%, -50%) rotate(-15deg);
     z-index: 99;
@@ -89,12 +89,16 @@ main {
 .cell {
     font-size: 108px;
     border-radius: 5%;
-    font-family: 'Liu Jian Mao Cao', cursive;
+    font-family: 'Caveat', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-self: stretch;
     height: 150px;
+}
+
+.cell:hover {
+    background-color: #fffdeb;
 }
 
 .taken1 {
