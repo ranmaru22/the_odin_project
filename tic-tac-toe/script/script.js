@@ -27,8 +27,6 @@ class Player {
 class Game {
     #boardDiv = document.querySelector("#gameboard");
     #moves = new Array(9).fill("");
-    #scores = [0, 0, 0, 0, 0, 0, 0, 0];
-    #turns = 0;
     #nextPlayer;
     #aiGame;
 
@@ -63,13 +61,12 @@ class Game {
             event.target.classList.add((this.#nextPlayer === this.player1) ? "taken1" : "taken2");
             const cell = event.target.getAttribute("id").slice(-1);
             this.#moves[cell] = this.#nextPlayer.marker;
-            this.nextMove(cell, this.#scores);
+            this.nextMove(cell);
         }
     }
 
-    aiTurn(scoreTable) {
+    aiTurn() {
         console.log("AI turn");
-        let scoresClone = [...scoreTable];
         let possibleMoves = new Array();
         for (let move in this.#moves) {
             if (this.#moves[move] === "") {
@@ -77,61 +74,57 @@ class Game {
             }
         }
         console.log(possibleMoves);
+        let dummyMoveTable = [...this.#moves];
         const moveScores = possibleMoves.map(
-            (move) => this.miniMax(possibleMoves.filter(x => x !== move), move, scoresClone, false)
+            (move) => this.miniMax(possibleMoves.filter(x => x !== move), false)
         );
-        const nextMove = possibleMoves[moveScores.indexOf(Math.max(...moveScores))];
+        const nextMove = possibleMoves[moveScores.indexOf(Math.min(...moveScores))];
         console.log(moveScores);
         console.log(nextMove);
         this.#moves[nextMove] = this.player2.marker;
         const cell = document.querySelector(`#cell${nextMove}`);
         cell.classList.add("taken2");
         cell.textContent = this.player2.marker;
-        this.nextMove(nextMove, this.#scores);
+        this.nextMove(nextMove);
     }
 
-    miniMax(possibleMoves, scoreTable, findMin) {
-        const turnNo = 9 - possibleMoves.length;
-        const gameOver = this.checkWin(scoreTable, turnNo);
+
+    miniMax(possibleMoves, findMin) {
+        const gameOver = this.checkWiner();
         if (gameOver !== null) {
-            return findMin ? gameOver + turnNo : gameOver - turnNo;
+            return gameOver;
         }
 
         if (findMin) {
-            let lowest = Infinity;
+            let best = Infinity;
             for (const move of possibleMoves) {
                 const remainingMoves = possibleMoves.filter(x => x !== move);
-                const newScoreTable = this.updateScores(move, this.player2, [...scoreTable]);
+                const newScoreTable = this.updateScores(move, this.player2, scoreTable);
                 const score = this.miniMax(remainingMoves, newScoreTable, false);
-                if (score < lowest) {
-                    lowest = score;
-                }
+                best = Math.min(score, best);
             }
-            return lowest;
+            return best;
         } else {
-            let highest = -Infinity;
+            let best = -Infinity;
             for (const move of possibleMoves) {
                 const remainingMoves = possibleMoves.filter(x => x !== move);
-                const newScoreTable = this.updateScores(move, this.player1, [...scoreTable]);
+                const newScoreTable = this.updateScores(move, this.player1, scoreTable);
                 const score = this.miniMax(remainingMoves, newScoreTable, true);
-                if (score > highest) {
-                    highest = score;
-                }
+                best = Math.max(score, best);
             }
-            return highest;
+            return best;
         }
     }
 
-    nextMove(cell, scoreTable) {
+    nextMove(cell) {
         console.log(`${this.#nextPlayer.name} played ${cell}`);
-        scoreTable = this.updateScores(Number(cell), this.#nextPlayer, scoreTable);
-        const gameOver = this.checkWin(scoreTable, ++this.#turns);
+        const gameOver = this.checkWinner(this.#moves);
         switch (gameOver) {
-            case 10:
+            case 1:
                 console.log(`${this.player1.name} wins!`);
                 this.endGame(this.player1);
                 return;
-            case -10:
+            case -1:
                 console.log(`${this.player2.name} wins!`);
                 this.endGame(this.player2);
                 return;
@@ -142,39 +135,82 @@ class Game {
             default:
                 break;
         }
-
         if (this.#nextPlayer === this.player1) {
             this.#nextPlayer = this.player2;
             if (this.#aiGame) {
-                this.aiTurn(scoreTable);
+                this.aiTurn();
             }
         } else {
             this.#nextPlayer = this.player1;
         }
     }
 
-    updateScores(cell, player, scoreTable) {
-        const delta = (player === this.player1) ? 1 : -1;
-        scoreTable[cell % 3] += delta;
-        scoreTable[Math.floor(cell / 3 + 3)] += delta;
-        if (cell === 0 || cell === 4 || cell === 8) {
-            scoreTable[6] += delta;
-        }
-        if (cell === 2 || cell === 4 || cell === 6) {
-            scoreTable[7] += delta;
-        }
-        return scoreTable;
-    }
-
-    checkWin(scoreTable, turnNo) {
-        if (Math.max(...scoreTable) === 3) {
-            return 10;
-        } else if (Math.min(...scoreTable) === -3) {
-            return -10;
-        } else if (turnNo === 9) {
+    checkWinner(moveTable) {
+        const p1Marker = this.player1.marker;
+        const p2Marker = this.player2.marker;
+        if (
+            // Check horizontal wins
+            (moveTable[0] === p1Marker &&
+                moveTable[1] === p1Marker &&
+                moveTable[2] === p1Marker) ||
+            (moveTable[3] === p1Marker &&
+                moveTable[4] === p1Marker &&
+                moveTable[5] === p1Marker) ||
+            (moveTable[6] === p1Marker &&
+                moveTable[7] === p1Marker &&
+                moveTable[8] === p1Marker) ||
+            // Check horizontal wins
+            (moveTable[0] === p1Marker &&
+                moveTable[3] === p1Marker &&
+                moveTable[6] === p1Marker) ||
+            (moveTable[1] === p1Marker &&
+                moveTable[4] === p1Marker &&
+                moveTable[7] === p1Marker) ||
+            (moveTable[2] === p1Marker &&
+                moveTable[5] === p1Marker &&
+                moveTable[8] === p1Marker) ||
+            // Check diagonal wins
+            (moveTable[0] === p1Marker &&
+                moveTable[4] === p1Marker &&
+                moveTable[8] === p1Marker) ||
+            (moveTable[2] === p1Marker &&
+                moveTable[4] === p1Marker &&
+                moveTable[6] === p1Marker)
+        ) {
+            return 1;
+        } else if (
+            // Check horizontal wins
+            (moveTable[0] === p2Marker &&
+                moveTable[1] === p2Marker &&
+                moveTable[2] === p2Marker) ||
+            (moveTable[3] === p2Marker &&
+                moveTable[4] === p2Marker &&
+                moveTable[5] === p2Marker) ||
+            (moveTable[6] === p2Marker &&
+                moveTable[7] === p2Marker &&
+                moveTable[8] === p2Marker) ||
+            // Check horizontal wins
+            (moveTable[0] === p2Marker &&
+                moveTable[3] === p2Marker &&
+                moveTable[6] === p2Marker) ||
+            (moveTable[1] === p2Marker &&
+                moveTable[4] === p2Marker &&
+                moveTable[7] === p2Marker) ||
+            (moveTable[2] === p2Marker &&
+                moveTable[5] === p2Marker &&
+                moveTable[8] === p2Marker) ||
+            // Check diagonal wins
+            (moveTable[0] === p2Marker &&
+                moveTable[4] === p2Marker &&
+                moveTable[8] === p2Marker) ||
+            (moveTable[2] === p2Marker &&
+                moveTable[4] === p2Marker &&
+                moveTable[6] === p2Marker)
+        ) {
+            return -1;
+        } else if (!moveTable.includes("")) {
             return 0;
         }
-        return null;
     }
 
     endGame(winner) {
