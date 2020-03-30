@@ -134,3 +134,28 @@ div[id*="-1"] {
 div[id*="-2"] {
     border-left: 1px solid black;
 }
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #333;
+    color: #fcfcfc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerLeft, .footerRight {
+    font-size: 14px;
+    line-height: 10px;
+    padding: 5px 20px;
+}
+
+footer a {
+    color: #fcfcfc;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
