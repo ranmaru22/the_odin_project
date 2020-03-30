@@ -1,4 +1,4 @@
-"use strict";
+;; "use strict";
 
 class Gameboard {
     constructor(domElem) {
@@ -7,32 +7,33 @@ class Gameboard {
     }
 
     drawToScreen() {
-        for (let cell = 0; cell !== this.board.length; cell++) {
+        for (let i = 0; i !== this.board.length; i++) {
             const nextCell = document.createElement("div");
-            nextCell.setAttribute("id", `cell${cell}`);
+            nextCell.setAttribute("id", `cell${Math.floor(i / 3)}-${i % 3}`);
             nextCell.classList.add("cell");
-            nextCell.textContent = cell;
+            nextCell.textContent = i;
             this.domElem.appendChild(nextCell);
         }
     }
 }
 
 class Player {
-    constructor(name, marker, aiPlayer) {
+    constructor(name, marker, id, aiPlayer) {
         this.name = aiPlayer ? "Computer" : name;
         this.marker = marker;
+        this.id = id;
     }
 }
 
 class Game {
     #boardDiv = document.querySelector("#gameboard");
-    #moves = new Array(9).fill("");
+    #moves = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     #nextPlayer;
     #aiGame;
 
     constructor(p1name, p2name, aiGame = false) {
-        this.player1 = new Player(p1name, "X");
-        this.player2 = new Player(p2name, "O");
+        this.player1 = new Player(p1name, "X", 1);
+        this.player2 = new Player(p2name, "O", -1);
         this.board = new Gameboard(this.#boardDiv);
         this.#aiGame = aiGame;
         this.#nextPlayer = this.player1;
@@ -59,67 +60,67 @@ class Game {
         if (mark !== this.player1.marker && mark !== this.player2.marker) {
             event.target.textContent = this.#nextPlayer.marker;
             event.target.classList.add((this.#nextPlayer === this.player1) ? "taken1" : "taken2");
-            const cell = event.target.getAttribute("id").slice(-1);
-            this.#moves[cell] = this.#nextPlayer.marker;
-            this.nextMove(cell);
+            const [x, y] = event.target.getAttribute("id").slice(-3).split("-");
+            this.nextMove(x, y);
         }
     }
 
     aiTurn() {
         console.log("AI turn");
         let possibleMoves = new Array();
-        for (let move in this.#moves) {
-            if (this.#moves[move] === "") {
-                possibleMoves.push(move);
+        for (let x = 0; x !== this.#moves.length; x++) {
+            for (let y = 0; y !== this.#moves[x].length; y++) {
+                if (this.#moves[x][y] === 0) {
+                    possibleMoves.push([x, y]);
+                }
             }
         }
-        console.log(possibleMoves);
-        let dummyMoveTable = [...this.#moves];
-        const moveScores = possibleMoves.map(
-            (move) => this.miniMax(possibleMoves.filter(x => x !== move), false)
-        );
-        const nextMove = possibleMoves[moveScores.indexOf(Math.min(...moveScores))];
+        console.log(...possibleMoves);
+        const dummyMoveTable = [...this.#moves];
+        const moveScores = possibleMoves.map(([x, y]) => {
+            dummyMoveTable[x][y] = -1;
+            const ret = this.miniMax(dummyMoveTable, false);
+            dummyMoveTable[x][y] = 0;
+            return ret;
+        });
+        const [x, y] = possibleMoves[moveScores.indexOf(Math.min(...moveScores))];
         console.log(moveScores);
-        console.log(nextMove);
-        this.#moves[nextMove] = this.player2.marker;
-        const cell = document.querySelector(`#cell${nextMove}`);
+        const cell = document.querySelector(`#cell${x}-${y}`);
         cell.classList.add("taken2");
         cell.textContent = this.player2.marker;
-        this.nextMove(nextMove);
+        this.nextMove(x, y);
     }
 
 
-    miniMax(possibleMoves, findMin) {
-        const gameOver = this.checkWiner();
-        if (gameOver !== null) {
-            return gameOver;
-        }
-
-        if (findMin) {
-            let best = Infinity;
-            for (const move of possibleMoves) {
-                const remainingMoves = possibleMoves.filter(x => x !== move);
-                const newScoreTable = this.updateScores(move, this.player2, scoreTable);
-                const score = this.miniMax(remainingMoves, newScoreTable, false);
-                best = Math.min(score, best);
+    miniMax(moveTable, isMinimizing) {
+        let possibleMoves = new Array();
+        for (let x = 0; x !== moveTable.length; x++) {
+            for (let y = 0; y !== moveTable[x].length; y++) {
+                if (this.#moves[x][y] === 0) {
+                    possibleMoves.push([x, y]);
+                }
             }
-            return best;
-        } else {
-            let best = -Infinity;
-            for (const move of possibleMoves) {
-                const remainingMoves = possibleMoves.filter(x => x !== move);
-                const newScoreTable = this.updateScores(move, this.player1, scoreTable);
-                const score = this.miniMax(remainingMoves, newScoreTable, true);
-                best = Math.max(score, best);
-            }
-            return best;
         }
+        const finalScore = this.checkWinner(moveTable, isMinimizing ? -1 : 1);
+        if (finalScore !== null) {
+            return finalScore * (possibleMoves.length + 1);
+        }
+        let bestScore = isMinimizing ?
+            Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+        possibleMoves.forEach(([x, y]) => {
+            moveTable[x][y] = isMinimizing ? -1 : 1;
+            let score = this.miniMax(moveTable, !isMinimizing);
+            moveTable[x][y] = 0;
+            const checkFunction = isMinimizing ? Math.min : Math.max;
+            bestScore = checkFunction(score, bestScore);
+        });
+        return bestScore;
     }
 
-    nextMove(cell) {
-        console.log(`${this.#nextPlayer.name} played ${cell}`);
-        const gameOver = this.checkWinner(this.#moves);
-        switch (gameOver) {
+    nextMove(x, y) {
+        console.log(`${this.#nextPlayer.name} played (${x}, ${y})`);
+        this.#moves[x][y] = this.#nextPlayer.id;
+        switch (this.checkWinner(this.#moves, this.#nextPlayer.id)) {
             case 1:
                 console.log(`${this.player1.name} wins!`);
                 this.endGame(this.player1);
@@ -145,72 +146,26 @@ class Game {
         }
     }
 
-    checkWinner(moveTable) {
-        const p1Marker = this.player1.marker;
-        const p2Marker = this.player2.marker;
-        if (
+    checkWinner(moveTable, playerId) {
+        if ( // Check for horizontal wins
+            moveTable[0].every(x => x === playerId) ||
+            moveTable[1].every(x => x === playerId) ||
+            moveTable[2].every(x => x === playerId) ||
+            // cheeck for vertical win
+            moveTable.every(arr => arr[0] === playerId) ||
+            moveTable.every(arr => arr[1] === playerId) ||
+            moveTable.every(arr => arr[2] === playerId) ||
             // Check horizontal wins
-            (moveTable[0] === p1Marker &&
-                moveTable[1] === p1Marker &&
-                moveTable[2] === p1Marker) ||
-            (moveTable[3] === p1Marker &&
-                moveTable[4] === p1Marker &&
-                moveTable[5] === p1Marker) ||
-            (moveTable[6] === p1Marker &&
-                moveTable[7] === p1Marker &&
-                moveTable[8] === p1Marker) ||
-            // Check horizontal wins
-            (moveTable[0] === p1Marker &&
-                moveTable[3] === p1Marker &&
-                moveTable[6] === p1Marker) ||
-            (moveTable[1] === p1Marker &&
-                moveTable[4] === p1Marker &&
-                moveTable[7] === p1Marker) ||
-            (moveTable[2] === p1Marker &&
-                moveTable[5] === p1Marker &&
-                moveTable[8] === p1Marker) ||
-            // Check diagonal wins
-            (moveTable[0] === p1Marker &&
-                moveTable[4] === p1Marker &&
-                moveTable[8] === p1Marker) ||
-            (moveTable[2] === p1Marker &&
-                moveTable[4] === p1Marker &&
-                moveTable[6] === p1Marker)
+            [moveTable[0][0], moveTable[1][1], moveTable[2][2]].every(x => x === playerId) ||
+            [moveTable[0][2], moveTable[1][1], moveTable[2][0]].every(x => x === playerId)
         ) {
-            return 1;
-        } else if (
-            // Check horizontal wins
-            (moveTable[0] === p2Marker &&
-                moveTable[1] === p2Marker &&
-                moveTable[2] === p2Marker) ||
-            (moveTable[3] === p2Marker &&
-                moveTable[4] === p2Marker &&
-                moveTable[5] === p2Marker) ||
-            (moveTable[6] === p2Marker &&
-                moveTable[7] === p2Marker &&
-                moveTable[8] === p2Marker) ||
-            // Check horizontal wins
-            (moveTable[0] === p2Marker &&
-                moveTable[3] === p2Marker &&
-                moveTable[6] === p2Marker) ||
-            (moveTable[1] === p2Marker &&
-                moveTable[4] === p2Marker &&
-                moveTable[7] === p2Marker) ||
-            (moveTable[2] === p2Marker &&
-                moveTable[5] === p2Marker &&
-                moveTable[8] === p2Marker) ||
-            // Check diagonal wins
-            (moveTable[0] === p2Marker &&
-                moveTable[4] === p2Marker &&
-                moveTable[8] === p2Marker) ||
-            (moveTable[2] === p2Marker &&
-                moveTable[4] === p2Marker &&
-                moveTable[6] === p2Marker)
+            return playerId;
+        } else if ( // Check for a draw
+            Array().concat(...moveTable).every(x => x !== 0)
         ) {
-            return -1;
-        } else if (!moveTable.includes("")) {
             return 0;
         }
+        return null;
     }
 
     endGame(winner) {
