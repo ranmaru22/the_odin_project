@@ -52,7 +52,7 @@ class Game {
 
     attachEventHandlers() {
         const cells = document.querySelectorAll(".cell");
-        cells.forEach((cell) => cell.addEventListener("click", (e) => this.turnHandler(e)));
+        cells.forEach(cell => cell.addEventListener("click", e => this.turnHandler(e)));
     }
 
     turnHandler(event) {
@@ -96,14 +96,14 @@ class Game {
         let possibleMoves = new Array();
         for (let x = 0; x !== moveTable.length; x++) {
             for (let y = 0; y !== moveTable[x].length; y++) {
-                if (this.#moves[x][y] === 0) {
+                if (moveTable[x][y] === 0) {
                     possibleMoves.push([x, y]);
                 }
             }
         }
         const finalScore = this.checkWinner(moveTable, isMinimizing ? -1 : 1);
         if (finalScore !== null) {
-            return finalScore * (possibleMoves.length + 1);
+            return finalScore; // * (possibleMoves.length + 1);
         }
         let bestScore = isMinimizing ?
             Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
@@ -209,9 +209,9 @@ window.onload = function main() {
     const againstAi = document.querySelector("#againstAi");
     againstAi.addEventListener("click", setAiGame);
     const submitReady = document.querySelector("#gameSetup");
-    submitReady.addEventListener("submit", (e) => startGame(e, state, againstAi.checked));
+    submitReady.addEventListener("submit", e => startGame(e, state, againstAi.checked));
     const overlay = document.querySelector("#cover");
     const winMessage = document.querySelector("#winMessage");
-    overlay.addEventListener("click", (e) => resetAll(e, state));
-    winMessage.addEventListener("click", (e) => resetAll(e, state));
+    overlay.addEventListener("click", e => resetAll(e, state));
+    winMessage.addEventListener("click", e => resetAll(e, state));
 }
