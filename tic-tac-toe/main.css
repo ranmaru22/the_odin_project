@@ -109,28 +109,28 @@ main {
     background-color: rgb(204, 204, 255);
 }
 
-#cell0, #cell1, #cell2 {
+div[id^="cell0-"] {
     border-bottom: 1px solid black;
 }
 
-#cell3, #cell4, #cell5 {
+div[id^="cell1-"] {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
 
-#cell6, #cell7, #cell8 {
+div[id^="cell2-"] {
     border-top: 1px solid black;
 }
 
-#cell0, #cell3, #cell6 {
+div[id*="-0"] {
     border-right: 1px solid black;
 }
 
-#cell1, #cell4, #cell7 {
+div[id*="-1"] {
     border-right: 1px solid black;
     border-left: 1px solid black;
 }
 
-#cell2, #cell5, #cell8 {
+div[id*="-2"] {
     border-left: 1px solid black;
 }
