@@ -151,11 +151,11 @@ class Game {
             moveTable[0].every(x => x === playerId) ||
             moveTable[1].every(x => x === playerId) ||
             moveTable[2].every(x => x === playerId) ||
-            // cheeck for vertical win
+            // Check for vertical wins
             moveTable.every(arr => arr[0] === playerId) ||
             moveTable.every(arr => arr[1] === playerId) ||
             moveTable.every(arr => arr[2] === playerId) ||
-            // Check horizontal wins
+            // Check for diagonal wins
             [moveTable[0][0], moveTable[1][1], moveTable[2][2]].every(x => x === playerId) ||
             [moveTable[0][2], moveTable[1][1], moveTable[2][0]].every(x => x === playerId)
         ) {
