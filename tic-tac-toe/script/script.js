@@ -11,7 +11,7 @@ class Gameboard {
             const nextCell = document.createElement("div");
             nextCell.setAttribute("id", `cell${Math.floor(i / 3)}-${i % 3}`);
             nextCell.classList.add("cell");
-            nextCell.textContent = i;
+            nextCell.textContent = "";
             this.domElem.appendChild(nextCell);
         }
     }
@@ -33,7 +33,7 @@ class Game {
 
     constructor(p1name, p2name, aiGame = false) {
         this.player1 = new Player(p1name, "X", 1);
-        this.player2 = new Player(p2name, "O", -1);
+        this.player2 = new Player(p2name, "O", -1, aiGame);
         this.board = new Gameboard(this.#boardDiv);
         this.#aiGame = aiGame;
         this.#nextPlayer = this.player1;
@@ -43,16 +43,6 @@ class Game {
         delete this.player1;
         delete this.player2;
         delete this.board;
-    }
-
-    run() {
-        this.board.drawToScreen();
-        this.attachEventHandlers();
-    }
-
-    attachEventHandlers() {
-        const cells = document.querySelectorAll(".cell");
-        cells.forEach(cell => cell.addEventListener("click", e => this.turnHandler(e)));
     }
 
     turnHandler(event) {
@@ -65,8 +55,17 @@ class Game {
         }
     }
 
+    attachEventHandlers() {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach(cell => cell.addEventListener("click", e => this.turnHandler(e)));
+    }
+
+    run() {
+        this.board.drawToScreen();
+        this.attachEventHandlers();
+    }
+
     aiTurn() {
-        console.log("AI turn");
         let possibleMoves = new Array();
         for (let x = 0; x !== this.#moves.length; x++) {
             for (let y = 0; y !== this.#moves[x].length; y++) {
@@ -75,7 +74,6 @@ class Game {
                 }
             }
         }
-        console.log(...possibleMoves);
         const dummyMoveTable = [...this.#moves];
         const moveScores = possibleMoves.map(([x, y]) => {
             dummyMoveTable[x][y] = -1;
@@ -84,13 +82,11 @@ class Game {
             return ret;
         });
         const [x, y] = possibleMoves[moveScores.indexOf(Math.min(...moveScores))];
-        console.log(moveScores);
         const cell = document.querySelector(`#cell${x}-${y}`);
         cell.classList.add("taken2");
         cell.textContent = this.player2.marker;
         this.nextMove(x, y);
     }
-
 
     miniMax(moveTable, isMinimizing) {
         let possibleMoves = new Array();
@@ -118,19 +114,15 @@ class Game {
     }
 
     nextMove(x, y) {
-        console.log(`${this.#nextPlayer.name} played (${x}, ${y})`);
         this.#moves[x][y] = this.#nextPlayer.id;
         switch (this.checkWinner(this.#moves, this.#nextPlayer.id)) {
             case 1:
-                console.log(`${this.player1.name} wins!`);
                 this.endGame(this.player1);
                 return;
             case -1:
-                console.log(`${this.player2.name} wins!`);
                 this.endGame(this.player2);
                 return;
             case 0:
-                console.log(`Draw!`)
                 this.endGame();
                 return;
             default:
