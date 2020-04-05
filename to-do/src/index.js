@@ -1,4 +1,7 @@
-;; "use strict";
+/* jshint browser: true */
+/* jshint esversion: 10 */
+
+"use strict";
 import TodoList from "./todo-list";
 import TodoItem from "./todo-item";
 import * as event from "./event-handlers";
@@ -19,5 +22,5 @@ window.onload = () => {
     document.querySelector("#form-add-list")
         .addEventListener("submit", event.addNewList);
     document.querySelectorAll(".tab-list")
-        .forEach(x => { x.addEventListener("click", event.selectList) });
-}
+        .forEach(x => { x.addEventListener("click", event.selectList); });
+};

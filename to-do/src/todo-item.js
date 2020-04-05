@@ -1,3 +1,6 @@
+/* jshint browser: true */
+/* jshint esversion: 10 */
+
 import { formatDistanceToNow } from 'date-fns';
 import * as event from "./event-handlers";
 
@@ -37,7 +40,7 @@ TodoItem.prototype.getListItemNode = function () {
     date.textContent = this.date;
     ret.appendChild(date);
     return ret;
-}
+};
 
 TodoItem.prototype.toJson = function () {
     return {
@@ -46,4 +49,4 @@ TodoItem.prototype.toJson = function () {
         prio: this.priority,
         done: this.done
     };
-}
+};

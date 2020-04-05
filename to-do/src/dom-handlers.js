@@ -1,3 +1,6 @@
+/* jshint browser: true */
+/* jshint esversion: 10 */
+
 import Sortable from 'sortablejs';
 
 export function displayTodoList(list) {

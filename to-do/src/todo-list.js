@@ -1,3 +1,6 @@
+/* jshint browser: true */
+/* jshint esversion: 10 */
+
 import TodoItem from "./todo-item";
 import Sortable from 'sortablejs';
 
@@ -11,16 +14,16 @@ export default function TodoList(name) {
 TodoList.prototype.push = function (item) {
     this.items = [...this.items, item];
     this.saveToLocalStorage();
-}
+};
 
 TodoList.prototype.remove = function (item) {
     this.items = this.items.filter(x => x !== item);
     this.saveToLocalStorage();
-}
+};
 
 TodoList.prototype.get = function (itemTitle) {
     return this.items.find(x => x.title === itemTitle);
-}
+};
 
 TodoList.prototype.getFullListNode = function () {
     const newList = document.createElement("ul");
@@ -29,14 +32,14 @@ TodoList.prototype.getFullListNode = function () {
         newList.appendChild(x.getListItemNode());
     });
     return newList;
-}
+};
 
 TodoList.prototype.getListLinksNode = function () {
     const ret = document.createElement("p");
     ret.classList.add("tab-list");
     ret.textContent = this.name;
     return ret;
-}
+};
 
 TodoList.prototype.toJson = function () {
     const ret = {
@@ -47,7 +50,7 @@ TodoList.prototype.toJson = function () {
         ret.items.push(x.toJson());
     });
     return JSON.stringify(ret);
-}
+};
 
 TodoList.fromJson = function (json) {
     const data = JSON.parse(json);
@@ -56,12 +59,12 @@ TodoList.fromJson = function (json) {
         instance.push(new TodoItem(x.title, x.date, x.prio, x.done, true));
     });
     return instance;
-}
+};
 
 TodoList.prototype.saveToLocalStorage = function () {
     const jsonData = this.toJson();
     window.localStorage.setItem(this.name, jsonData);
-}
+};
 
 TodoList.loadFromLocalStorage = function (key) {
     if (key) {
@@ -73,4 +76,4 @@ TodoList.loadFromLocalStorage = function (key) {
         data.push(TodoList.fromJson(window.localStorage.getItem(x)));
     });
     return data;
-}
+};
