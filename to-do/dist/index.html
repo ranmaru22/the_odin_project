@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JS To-Do App</title>
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <script type="application/javascript" src="./bundle.js"></script>
+</head>
+
+<body>
+  <h1>My To-Dos</h1>
+  <p class="guide">This app has been developed as part of <a
+      href="https://www.theodinproject.com/lessons/todo-list">The Odin Project's curriculum</a>. The
+    data you input is saved in your browser's local storage and will persist between sessions, as
+    long as you don't clear the cache. To clear all data manually, type <span
+      class="code-snippet">window.localStorage.clear();</span> into the JavaScript console.</p>
+  <p class="guide">The app uses the amazing <a href="https://date-fns.org/">date-fns</a> and <a
+      href="https://github.com/SortableJS/Sortable">SortableJS</a> modules. You can find the full
+    source code on my <a
+      href="https://github.com/ranmaru22/the_odin_project/tree/master/todo">GitHub</a>.</p>
+
+  <main>
+
+    <div id="left-main">
+
+      <div id="list-tabs"></div>
+
+      <form id="form-add-list">
+        <input id="list-title" type="text" placeholder="New List" required />
+        <input id="list-add" type="submit" value="Add List" />
+      </form>
+
+    </div>
+
+    <div id="right-main">
+
+      <form id="form-add-item">
+        <input id="todo-title" type="text" placeholder="New to-do" required />
+        <input id="todo-due" type="date" value="2020-12-01" required />
+        <select id="todo-prio" placeholder="Priority">
+          <option value="0">Low Priority</option>
+          <option value="1" selected>Standard</option>
+          <option value="2">High Priority</option>
+        </select>
+        <input id="todo-add" type="submit" value="Add Item" />
+      </form>
+
+      <div id="tabcontent" data-list-name=""></div>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+
+</body>
+
+</html>
