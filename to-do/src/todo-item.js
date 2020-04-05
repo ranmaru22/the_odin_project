@@ -1,6 +1,3 @@
-/* jshint browser: true */
-/* jshint esversion: 10 */
-
 import { formatDistanceToNow } from 'date-fns';
 import * as event from "./event-handlers";
 

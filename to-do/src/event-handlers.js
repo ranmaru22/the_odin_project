@@ -1,6 +1,3 @@
-/* jshint browser: true */
-/* jshint esversion: 10 */
-
 import TodoItem from "./todo-item";
 import TodoList from "./todo-list";
 import * as dom from "./dom-handlers";

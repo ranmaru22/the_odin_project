@@ -1,8 +1,4 @@
-/* jshint browser: true */
-/* jshint esversion: 10 */
-
 import TodoItem from "./todo-item";
-import Sortable from 'sortablejs';
 
 // type TodoList = String [TodoItem]
 export default function TodoList(name) {

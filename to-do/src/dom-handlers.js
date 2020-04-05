@@ -1,6 +1,3 @@
-/* jshint browser: true */
-/* jshint esversion: 10 */
-
 import Sortable from 'sortablejs';
 
 export function displayTodoList(list) {
@@ -11,7 +8,7 @@ export function displayTodoList(list) {
     });
     rootNode.dataset.listName = list.name;
     rootNode.appendChild(listNode);
-    const sortableList = new Sortable(listNode);
+    new Sortable(listNode);
 }
 
 export function displayAllLists(listArray) {
@@ -21,5 +18,5 @@ export function displayAllLists(listArray) {
     });
     rootNode.firstElementChild.classList.add("active-tab");
     displayTodoList(listArray[0]);
-    const sortableList = new Sortable(rootNode);
+    new Sortable(rootNode);
 }

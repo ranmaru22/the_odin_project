@@ -1,9 +1,5 @@
-/* jshint browser: true */
-/* jshint esversion: 10 */
-
 "use strict";
 import TodoList from "./todo-list";
-import TodoItem from "./todo-item";
 import * as event from "./event-handlers";
 import * as dom from "./dom-handlers";
 
