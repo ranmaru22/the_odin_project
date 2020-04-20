@@ -1,0 +1,19 @@
+{
+  "name": "js_testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "capitalize-string.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha",
+    "watch": "mocha --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^7.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}
