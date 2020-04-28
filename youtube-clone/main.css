@@ -67,3 +67,193 @@ html, body {
     border-radius: 50%;
     padding: 5px 10px;
 }
+
+main {
+    display: flex;
+}
+
+.video-area {
+    padding: 20px;
+    flex-grow: 2;
+}
+
+.video-title {
+    font-size: 18px;
+    color: #fff;
+}
+
+.details {
+    font-size: 14px;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+.details .right {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.channel-info {
+    padding-top: 15px;
+    display: flex;  
+    justify-content: space-between;
+}
+
+.channel-icon {
+    justify-self: flex-start;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+.channel-details {
+    justify-self: start;
+    flex-grow: 2;
+}
+
+.channel-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.channel-subs {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.subscribe-button {
+    height: 36px;
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.description {
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
+}
+
+.description > p {
+    line-height: 10px;
+    margin-left: 60px;
+}
+
+.count {
+    display: flex;
+}
+
+.count p {
+    color: #fff;
+    font-size: 16px;
+}
+
+.count i {
+    color: #aaa;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.add-comment {
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+}
+
+.add-comment > .name-icon {
+    margin-right: 10px;
+}
+
+.comment-input {
+    height: 30px;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 1px solid #333;
+}
+
+.comment-area {
+    display: flex;
+    flex-flow: column;
+    color: #fff;
+    font-size: 14px;
+}
+
+.comment-block {
+    margin-top: 15px;
+    display: flex;
+    flex-flow: column
+}
+
+.commenter-name-area {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.commenter-name-area p {
+    margin: 0 5px
+}
+
+.commenter-name-area .name {
+    font-weight: bold;
+}
+
+
+.commenter-name-area .date {
+    color: #aaa;
+}
+
+.comment-text {
+    margin-left: 50px;
+}
+
+.comment-reactions {
+    color: #aaa;
+    margin-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.comment-reactions p {
+    margin-right: 15px;
+    display: inline;
+}
+
+.comment-reactions .reply {
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+.show-more {
+    margin-top: -15px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+    color: #5e84f1;
+}
+
+.show-more p > i {
+    position: relative;
+    top: -3px;
+    margin-right: 10px;
+}
+
+.recommendations {
+    flex-grow: 1;
+    width: 460px;
+}
