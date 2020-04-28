@@ -6,14 +6,31 @@
   <title>YouTube Clone</title>
   <meta name="description" content="Fake YouTube page for The Odin Project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/all.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" type="text/css" href="./assets/all.css" />
+  <link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
 
 <body>
 
   <header class="navbar">
+    <nav class="left-icons">
+      <i class="fas fa-bars"></i>
+      <i class="fab fa-youtube"><span class="youtube-logo">YouTube</span></i>
+    </nav>
 
+    <nav class="middle-search">
+      <form action="submit">
+        <input type="search" name="find-video" id="searchbar" placeholder="Search" />
+        <button type="button"><i class="fas fa-search"></i></button>
+      </form>
+    </nav>
+
+    <nav class="right-icons">
+      <i class="fas fa-video"></i>
+      <i class="fas fa-th"></i>
+      <i class="fas fa-bell"></i>
+      <span class="name-icon">X</span>
+    </nav>
   </header>
 
   <main>
