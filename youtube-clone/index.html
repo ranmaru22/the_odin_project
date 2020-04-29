@@ -19,8 +19,8 @@
     </nav>
 
     <nav class="middle-search">
-      <form action="submit">
-        <input type="search" name="find-video" id="searchbar" placeholder="Search" />
+      <form>
+        <input type="text" name="find-video" id="searchbar" placeholder="Search" />
         <button type="button"><i class="fas fa-search"></i></button>
       </form>
     </nav>
@@ -35,10 +35,12 @@
 
   <main>
     <section class="video-area">
-      <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/_om9u5zozYM"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+      <div class="iframe-container">
+        <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/_om9u5zozYM"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
       <p class="video-title">E6.5 with lubed Gateron Yellow housings with NovelKeys Cream stems
         Typing Sounds ASMR</p>
       <div class="details">
@@ -75,7 +77,7 @@
 
       <section class="comments">
         <div class="count">
-          <p>450 Comments</p>
+          <p>12 Comments</p>
           <p><i class="fas fa-sort-amount-down"> SORT BY</i></p>
         </div>
         <div class="add-comment">
@@ -134,14 +136,62 @@
     <aside class="recommendations">
       <div class="up-next">
         <p>Up next</p>
-        <p class="autoplay">AUTOPLAY</p>
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
+        <div class="autoplay">
+          <p>AUTOPLAY</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
-      <div class="rec-list">
 
+      <div class="rec-list">
+        <div class="rec-item">
+          <img src="./assets/video-th.webp" alt="Video Thumbnail">
+          <div class="rec-info">
+            <p class="rec-title">Rainy Days In Tokyo [Lofi Hip Hop / Jazzhop / Chillhop Mix] - Beats
+              to chill/study/relax</p>
+            <p class="rec-channel">Amplitude</p>
+            <p class="rec-views">8.4M views • 2 years ago</p>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <img src="./assets/rec-list2.webp" alt="Video Thumbnail">
+          <div class="rec-info">
+            <p class="rec-title">Topre Realforce 104UW review (Topre variable-weight capacitive)</p>
+            <p class="rec-channel">Chyrosran22</p>
+            <p class="rec-views">52K views • 1 year ago</p>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <img src="./assets/rec-list1.webp" alt="Video Thumbnail">
+          <div class="rec-info">
+            <p class="rec-title">1 A.M Study Session 📚 - [lofi hip hop/chill beats]</p>
+            <p class="rec-channel">ChilledCow <i class="fas fa-check-circle"></i></p>
+            <p class="rec-views">10M views • 2 months ago</p>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <img src="./assets/rec-list3.webp" alt="Video Thumbnail">
+          <div class="rec-info">
+            <p class="rec-title">How to get into FLOW as a developer?</p>
+            <p class="rec-channel">Fun Fun Function <i class="fas fa-check-circle"></i></p>
+            <p class="rec-views rec-new">New</p>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <img src="./assets/rec-list4.webp" alt="Video Thumbnail">
+          <div class="rec-info">
+            <p class="rec-title">E x i s t e n t i a l (Vaportrap - Beats - Electronic Mix)</p>
+            <p class="rec-channel">SoulSearchAndDestroy</p>
+            <p class="rec-views">41K views • 2 years ago</p>
+          </div>
+
+        </div>
       </div>
     </aside>
   </main>
