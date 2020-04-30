@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
 body, html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "AvenirNext", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #eee;
+    color: #505050;
+}
+
+a {
+    color: #0077C5;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+.signin-text {
+    text-align: right;
+    margin-right: 15px;
+}
+.signin-text p {
+    margin: 0;
+}
+.signin-button button {
+    /* tbd */
+}
+
+main {
+    margin: 0 auto;
+    width: 380px;
+}
+main h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #888;
+    text-align: center;
+}
+#signup-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.form-header,
+.form-subheader {
+    text-align: center;
+    font-weight: normal;
+}
+.form-subheader {
+    font-size: 14px;
+    margin: 0;
+}
+#signup-form fieldset {
+    border: none;
+    margin-top: 20px;
+}
+#signup-form fieldset label,
+#signup-form fieldset input {
+    display: block;
 }
