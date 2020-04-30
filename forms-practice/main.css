@@ -11,19 +11,32 @@ a {
     text-decoration: none;
 }
 
+button {
+    background: #0077C5;
+    border-radius: 4px;
+    border: 1px solid #4c4c4c;
+    color: #fff;
+    font-family: "AvenirNext", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    height: 34px;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
 }
 .signin-text {
     text-align: right;
     margin-right: 15px;
+    font-size: 12px;
 }
 .signin-text p {
     margin: 0;
 }
 .signin-button button {
-    /* tbd */
+    padding: 0 20px;
 }
 
 main {
