@@ -9,14 +9,14 @@ body {
 }
 
 .container {
-    /* display: grid;
-    grid-template-rows: auto 1fr 1fr;
+    display: grid;
     align-items: center;
-    justify-items: center; */
+    justify-items: center;
 }
 
 .fixed-header {
     position: fixed;
+    background-color: white;
     top: 0;
     display: flex;
     width: 100%;
@@ -67,12 +67,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid blue;
 }
 .big-image img {
     max-width: 80vw;
 }
-.big-image figcaption {
+figcaption {
     color: #666;
     font-size: 0.875rem;
 }
@@ -81,11 +80,117 @@ body {
     font-size: 0.75rem;
 }
 
-
+.article-body {
+    display: grid;
+    margin-top: 20px;
+    width: 60%;
+}
 
 .author {
+    margin-top: ;
     align-self: flex-start;
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     font-weight: bold;
+}
+
+.date-share {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.date-share > * {
+    margin: 0 10px;
+}
+.date-share .date {
+    flex: 1;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.date-share > .fab,
+.date-share > .fas {
+    background-color: #eee;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+.date-share .comments {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 2px;
+    position: relative;
+}
+.date-share .comments::before {
+    border-color: black transparent;
+    border-style: solid;
+    bottom: -7px;
+    border-width: 6px 0px 0px 8px;
+    content: "";
+    display: block;
+    left: 15px;
+    position: absolute;
+    width: 0px;
+}
+.date-share .comments::after {
+    border-color: white transparent;
+    border-style: solid;
+    border-width: 6px 0px 0px 6px;
+    bottom: -6px;
+    content: "";
+    display: block;
+    left: 16px;
+    position: absolute;
+    width: 0px;
+}
+.art-paragraph {
+    margin: 10px 0;
+}
+
+.theory-fig {
+    margin-top: 25px;
+}
+.theory-fig .graphic {
+    display: grid;
+    width: 100%;
+    grid:
+        ".      .       .       .    "  1.25fr
+        "info1  info2   info3   info4"  1fr
+        ".      .       .       .    "  1.2fr
+        "info5  info6   info7   info8"  1fr;
+    background-image: url("./assets/theory.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.theory-fig .graphic > p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 0 10px;
+}
+.theory-fig .info1 {
+    grid-area: info1;
+}
+.theory-fig .info2 {
+    grid-area: info2;
+}
+.theory-fig .info3 {
+    grid-area: info3;
+}
+.theory-fig .info4 {
+    grid-area: info4;
+}
+.theory-fig .info5 {
+    grid-area: info5;
+}
+.theory-fig .info6 {
+    grid-area: info6;
+}
+.theory-fig .info7 {
+    grid-area: info7;
+}
+.theory-fig .info8 {
+    grid-area: info8;
 }
