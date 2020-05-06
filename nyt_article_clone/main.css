@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    /* display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    align-items: center;
+    justify-items: center; */
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    padding: 0 15px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e2e2;
+}
+.fixed-header > * {
+    padding: 0 15px;
+}
+.nyt-logo {
+    flex: 1;
+    text-align: center;
+}
+.nyt-logo img {
+    width: 184px;
+    height: 40px
+}
+.fixed-header .btn {
+    margin: 0 5px;
+    cursor: pointer;
+    height: 30px;
+    background-color: rgb(86, 123, 149);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid rgb(50, 104, 145);
+}
+
+.content {
+    margin-top: 100px;
+}
+.content h1 {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.article {
+    margin: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.big-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid blue;
+}
+.big-image img {
+    max-width: 80vw;
+}
+.big-image figcaption {
+    color: #666;
+    font-size: 0.875rem;
+}
+.big-image .credits {
+    color: #888;
+    font-size: 0.75rem;
+}
+
+
+
+.author {
+    align-self: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    font-weight: bold;
+}
