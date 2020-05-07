@@ -8,6 +8,10 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+a {
+    color: inherit;
+}
+
 .container {
     display: grid;
     align-items: center;
@@ -25,18 +29,22 @@ body {
     align-items: center;
     border-bottom: 1px solid #e2e2e2;
 }
-.fixed-header > * {
+
+.fixed-header>* {
     padding: 0 15px;
 }
+
 .nyt-logo {
     flex: 1;
     text-align: center;
 }
+
 .nyt-logo img {
     width: 184px;
     height: 40px
 }
-.fixed-header .btn {
+
+.btn {
     margin: 0 5px;
     cursor: pointer;
     height: 30px;
@@ -50,6 +58,7 @@ body {
 .content {
     margin-top: 100px;
 }
+
 .content h1 {
     font-size: 2rem;
     font-style: italic;
@@ -57,10 +66,12 @@ body {
 }
 
 .article {
-    margin: 0 10vw;
+    margin: 0 10%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1.25rem;
 }
 
 .big-image {
@@ -68,14 +79,17 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .big-image img {
     max-width: 80vw;
 }
+
 figcaption {
     color: #666;
     font-size: 0.875rem;
 }
-.big-image .credits {
+
+figcaption .credits {
     color: #888;
     font-size: 0.75rem;
 }
@@ -94,35 +108,41 @@ figcaption {
     font-weight: bold;
 }
 
-.date-share {
+.share {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
 }
-.date-share > * {
+
+.share>* {
     margin: 0 10px;
 }
-.date-share .date {
+
+.share .date {
     flex: 1;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
-.date-share > .fab,
-.date-share > .fas {
+
+.share>.fab,
+.share>.fas {
     background-color: #eee;
     border-radius: 50%;
     width: 25px;
     height: 25px;
     padding: 5px;
 }
-.date-share .comments {
+
+.share .comments {
     border: 1px solid black;
     border-radius: 3px;
     padding: 2px;
     position: relative;
 }
-.date-share .comments::before {
+
+.share .comments::before {
     border-color: black transparent;
     border-style: solid;
     bottom: -7px;
@@ -133,7 +153,8 @@ figcaption {
     position: absolute;
     width: 0px;
 }
-.date-share .comments::after {
+
+.share .comments::after {
     border-color: white transparent;
     border-style: solid;
     border-width: 6px 0px 0px 6px;
@@ -144,6 +165,7 @@ figcaption {
     position: absolute;
     width: 0px;
 }
+
 .art-paragraph {
     margin: 10px 0;
 }
@@ -151,46 +173,95 @@ figcaption {
 .theory-fig {
     margin-top: 25px;
 }
+
 .theory-fig .graphic {
+    margin-top: 10px;
     display: grid;
     width: 100%;
-    grid:
-        ".      .       .       .    "  1.25fr
-        "info1  info2   info3   info4"  1fr
-        ".      .       .       .    "  1.2fr
-        "info5  info6   info7   info8"  1fr;
-    background-image: url("./assets/theory.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    grid-template-areas:
+        ".      .       .       .    "
+        "info1  info2   info3   info4"
+        ".      .       .       .    "
+        "info5  info6   info7   info8";
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(225px, 1fr));
+    gap: 20px;
 }
 
-.theory-fig .graphic > p {
+.theory-fig .graphic>p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     padding: 0 10px;
 }
+
+.theory-fig .graphic>p>strong {
+    font-size: 11px;
+    margin-right: 8px;
+}
+
+.theory-fig .graphic>img {
+    grid-area: 1 / 1 / -1 / -1;
+    object-fit: contain;
+    width: 100%;
+}
+
 .theory-fig .info1 {
     grid-area: info1;
 }
+
 .theory-fig .info2 {
     grid-area: info2;
 }
+
 .theory-fig .info3 {
     grid-area: info3;
 }
+
 .theory-fig .info4 {
     grid-area: info4;
 }
+
 .theory-fig .info5 {
     grid-area: info5;
 }
+
 .theory-fig .info6 {
     grid-area: info6;
 }
+
 .theory-fig .info7 {
     grid-area: info7;
 }
+
 .theory-fig .info8 {
     grid-area: info8;
+}
+
+.video {
+    margin-top: 25px;
+}
+
+.image {
+    margin-top: 25px;
+    width: 70%;
+}
+
+.image img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.article-footer {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #888;
+    font-size: 0.75rem;
+}
+
+.end-of-article {
+    margin-top: 25px;
+}
+
+.end-of-article .btn {
+    margin-right: 20%;
+    flex: 1;
 }
