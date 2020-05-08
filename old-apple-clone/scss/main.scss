@@ -1,5 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+$gradient-bg: linear-gradient(top, rgba(0, 0, 0, 0.2), #0000 5%, #0000 97%, rgba(0, 0, 0, .45)),
+linear-gradient(left, rgba(0, 0, 0, .2), #0000 .2%, #0000 99.8%, rgba(0, 0, 0, .45)),
+linear-gradient(bottom, #666, #5e5e5e 50%, #707070 51%, #888);
+
+$magnifier-img: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGJhc2VQcm9maWxlPSJmdWxsIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIj4KPGcgZmlsbC1vcGFjaXR5PSIuNSI%2BCgk8cG9seWdvbiBwb2ludHM9IjkuMjA3LDcuMTI2IDcuNzkzLDguNTQxIDExLjc5MywxMi41NDEgMTMuMjA3LDExLjEyNiIgLz4KCTxwYXRoIGQ9Ik01LjkxNywzYzEuNjA4LDAsMi45MTcsMS4zMDgsMi45MTcsMi45MTdTNy41MjUsOC44MzMsNS45MTcsOC44MzNTMyw3LjUyNSwzLDUuOTE3UzQuMzA4LDMsNS45MTcsMyBNNS45MTcsMQoJCUMzLjIwMSwxLDEsMy4yMDEsMSw1LjkxN3MyLjIwMSw0LjkxNyw0LjkxNyw0LjkxN3M0LjkxNy0yLjIwMSw0LjkxNy00LjkxN0MxMC44MzMsMy4yMDEsOC42MzIsMSw1LjkxNywxTDUuOTE3LDF6IiAvPgo8L2c%2BCjxnPgoJPHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSI5LjIwNyw2LjEyNiA3Ljc5Myw3LjU0MSAxMS43OTMsMTEuNTQxIDEzLjIwNywxMC4xMjYiIC8%2BCgk8cGF0aCBmaWxsPSIjZmZmIiBkPSJNNS45MTcsMmMxLjYwOCwwLDIuOTE3LDEuMzA4LDIuOTE3LDIuOTE3UzcuNTI1LDcuODMzLDUuOTE3LDcuODMzUzMsNi41MjUsMyw0LjkxN1M0LjMwOCwyLDUuOTE3LDIKCQkgTTUuOTE3LDBDMy4yMDEsMCwxLDIuMjAxLDEsNC45MTdzMi4yMDEsNC45MTcsNC45MTcsNC45MTdzNC45MTctMi4yMDEsNC45MTctNC45MTdDMTAuODMzLDIuMjAxLDguNjMyLDAsNS45MTcsMEw1LjkxNywweiIgLz4KPC9nPgo8L3N2Zz4K');
+
+$magnifier-img-active: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGJhc2VQcm9maWxlPSJmdWxsIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIj4KPGc%2BCgk8cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjkuMjA3LDYuMTI2IDcuNzkzLDcuNTQxIDExLjc5MywxMS41NDEgMTMuMjA3LDEwLjEyNiIgLz4KCTxwYXRoIGZpbGw9IiM2NjYiIGQ9Ik01LjkxNywyYzEuNjA4LDAsMi45MTcsMS4zMDgsMi45MTcsMi45MTdTNy41MjUsNy44MzMsNS45MTcsNy44MzNTMyw2LjUyNSwzLDQuOTE3UzQuMzA4LDIsNS45MTcsMgoJCSBNNS45MTcsMEMzLjIwMSwwLDEsMi4yMDEsMSw0LjkxN3MyLjIwMSw0LjkxNyw0LjkxNyw0LjkxN3M0LjkxNy0yLjIwMSw0LjkxNy00LjkxN0MxMC44MzMsMi4yMDEsOC42MzIsMCw1LjkxNywwTDUuOTE3LDB6IiAvPgo8L2c%2BCjwvc3ZnPgo%3D');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 830px;
+    max-height: 1472px;
+}
+
+.global-header {
+    position: absolute;
+    width: 845px;
+    background: #000;
+    height: 36px;
+    top: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+    display: flex;
+    color: #fff;
+    background: $gradient-bg;
+    border-radius: 5px;
+    text-align: center;
+
+    &>* {
+        border-right: 2px inset gray;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type="text"] {
+        border-radius: 10px;
+        background: $gradient-bg;
+        border: 2px inset gray;
+        outline: none;
+        width: 80%;
+        height: 20px;
+        padding: 0 10px;
+
+        &:focus {
+            width: 100%;
+            background: #fff;
+        }
+    }
+
+    .magnifier {
+        background: $magnifier-img;
+        position: absolute;
+        width: 15px;
+        height: 12px;
+        right: 75px;
+    }
+}
+
+#billboard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 300px;
+    overflow: hidden;
+
+    .your-verse {
+        height: 100%;
+        width: 1440px;
+        margin: 0 auto;
+        background: url("/assets/your_verse_hero.jpg") 50% 100% / cover no-repeat;
+
+        .header {
+            position: relative;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            color: #fff;
+            top: 35%;
+
+            h1 {
+                font-size: 64px;
+                line-height: 64px;
+                font-weight: 300;
+            }
+
+            h2 {
+                font-size: 24px;
+                line-height: 28px;
+                font-weight: 300;
+                margin: 24px 20%;
+            }
+
+            p {
+                font-size: 24px;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.promos {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    overflow: hidden;
+
+    .promo-container {
+        position: relative;
+        min-width: 1024px;
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+
+        .promo {
+            flex: 1;
+            overflow: hidden;
+
+            img {
+                margin-left: -182px;
+                position: relative;
+                left: 50%;
+            }
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    color: #6e6e6e;
+    font-size: 0.64rem;
+    min-width: 980px;
+    width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    align-items: center;
+
+    img {
+        vertical-align: middle;
+    }
+
+    .clear-left {
+        align-self: start;
+    }
 }
