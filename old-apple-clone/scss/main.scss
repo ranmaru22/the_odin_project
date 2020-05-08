@@ -53,18 +53,25 @@ body {
         justify-content: center;
     }
 
-    input[type="text"] {
+    .noborder {
+        border-right: none;
+    }
+
+    input[type="search"] {
         border-radius: 10px;
         background: $gradient-bg;
         border: 2px inset gray;
         outline: none;
         width: 80%;
         height: 20px;
-        padding: 0 10px;
+        padding: 0 10px 0 18px;
 
         &:focus {
-            width: 100%;
             background: #fff;
+        }
+
+        &:focus+.magnifier {
+            background: $magnifier-img-active;
         }
     }
 
