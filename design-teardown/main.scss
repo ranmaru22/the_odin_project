@@ -115,6 +115,43 @@ main {
     grid-column: auto / span 2;
 }
 
+footer {
+    background: #ccc;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 50px 10vw;
+    gap: 20px;
+    justify-items: center;
+
+    h2 {
+        font-size: 0.9rem;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        li {
+            margin: 0 25px;
+        }
+    }
+
+    .notes {
+        padding: 25px 20vw;
+
+        p {
+            font-size: 0.85em;
+            text-align: center;
+        }
+    }
+
+    .links {
+        padding: 25px 10vw;
+    }
+}
+
 
 // Heatmap classes
 .highest {
