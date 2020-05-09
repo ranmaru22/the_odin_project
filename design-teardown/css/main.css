@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background: #999;
+  width: 100vw;
+  height: 100px;
+  color: white;
+  font-size: 28px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 2.25rem;
+}
+
+header .logo::first-letter {
+  position: relative;
+  padding: 0 .25em;
+  color: #999;
+  background-color: white;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+header .main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header .main-nav ul li {
+  margin: 0 25px;
+}
+
+header .search {
+  color: white;
+  background: #4F4F4F;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+main {
+  width: 100vw;
+  background: #aaa;
+}
+
+main h1 {
+  display: inline-block;
+  position: relative;
+  top: 40px;
+  left: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background: #333;
+  color: white;
+}
+
+main .featured-articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+main .featured-articles .featured {
+  font-size: 1.25rem;
+  padding: 100px;
+}
+
+main .articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: #ccc;
+}
+
+main .articles .article-card {
+  font-size: 1.1rem;
+  padding: 50px;
+}
+
+main .articles .see-more-link {
+  grid-column: 1 / -1;
+  padding: 50px;
+  justify-self: center;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+main .articles .span-row {
+  grid-column: 1 / -1;
+}
+
+.ad {
+  padding: 50px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  background: #888;
+}
+
+.ad h2 {
+  margin: 15px auto;
+}
+
+.grid-ad {
+  grid-column: auto / span 2;
+}
+
+footer {
+  background: #ccc;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 50px 10vw;
+  gap: 20px;
+  justify-items: center;
+}
+
+footer h2 {
+  font-size: 0.9rem;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer ul li {
+  margin: 0 25px;
+}
+
+footer .notes {
+  padding: 25px 20vw;
+}
+
+footer .notes p {
+  font-size: 0.85em;
+  text-align: center;
+}
+
+footer .links {
+  padding: 25px 10vw;
+}
+
+.highest {
+  background: #666;
+  color: white;
+}
+
+.higher {
+  background: #888;
+  color: white;
+}
+
+.high {
+  background: #aaa;
+  color: black;
+}
+
+.med {
+  background: #bbb;
+  color: black;
+}
+
+.low {
+  background: #ccc;
+  color: black;
+}
+
+.lower {
+  background: #ddd;
+  color: black;
+}
+
+.lowest {
+  background: #eee;
+  color: black;
+}
