@@ -48,6 +48,22 @@ body {
         justify-content: space-between;
         align-items: center;
 
+        .left {
+            display: flex;
+            align-items: center;
+
+            .logo {
+                display: none;
+                text-align: center;
+                font-size: 2em;
+                color: white;
+                padding: 16px 20px;
+                background: linear-gradient(to bottom right, #c09, #f42 85%);
+                width: 106px;
+                height: 100%;
+            }
+        }
+
         a {
             color: #ccc;
             text-decoration: none;
