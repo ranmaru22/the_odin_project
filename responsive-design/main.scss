@@ -101,3 +101,27 @@ body {
 main {
     height: 10000px;
 }
+
+@media all and (max-width: 1024px) and (min-width: 769px) {
+    .sticky-nav {
+        .flex-wrapper {
+            .left {
+                .logo {
+                    position: absolute;
+                    top: -40px;
+                    padding-top: 56px;
+                    height: calc(100% + 12px);
+                }
+
+                .hidden {
+                    display: block;
+                    padding-top: 35px;
+                }
+
+                a:first-of-type {
+                    padding-left: 122px;
+                }
+            }
+        }
+    }
+}
