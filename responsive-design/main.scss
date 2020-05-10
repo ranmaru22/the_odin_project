@@ -6,6 +6,7 @@
 
 body {
     font: 14px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 // TODO: media queries: @1024, @768
@@ -32,34 +33,6 @@ header {
             &:hover {
                 color: white;
             }
-        }
-    }
-
-    .sub-nav {
-        position: absolute;
-        top: 40px;
-        left: 0;
-        right: 0;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        a {
-            color: #ccc;
-            text-decoration: none;
-            padding: 0 10px;
-
-            &:hover {
-                color: black;
-            }
-        }
-
-        i {
-            font-size: 1.5em;
-            padding: 15px;
-            color: #ccc;
-            border-left: 1px solid #ccc;
         }
     }
 }
