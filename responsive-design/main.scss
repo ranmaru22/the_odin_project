@@ -101,7 +101,95 @@ body {
 }
 
 main {
-    height: 10000px;
+    .top-articles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+            "top1    top1    top2"
+            "top1    top1    top3";
+        padding: 10px;
+        gap: 10px;
+        height: 75vh;
+        max-height: 560px;
+
+        .top-1 {
+            background:
+                linear-gradient(170deg, #f00, transparent 70%),
+                url("../assets/top1.jpg") 0 0 / cover no-repeat;
+            grid-area: top1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-content: space-between;
+            padding: 10px 20px;
+
+            .article-logo {
+                color: white;
+                font-size: 72px;
+                margin-top: 25px;
+                justify-self: start;
+                align-self: flex-start;
+            }
+
+            .date {
+                color: white;
+                justify-self: end;
+            }
+
+            .article-header {
+                color: white;
+                grid-column: 1 / span 2;
+
+                .headline {
+                    font-size: 3rem;
+                    line-height: 3.25rem;
+                    font-weight: 700;
+                }
+
+                .byline {
+                    padding-top: 1rem;
+                    color: #eee;
+
+                    i {
+                        margin-left: 1em;
+                    }
+                }
+            }
+        }
+
+        .top-2 {
+            background: url("../assets/top2.jpg") 0 0 / cover no-repeat;
+            grid-area: top2;
+            display: grid;
+            align-items: end;
+            padding: 15px;
+
+            .article-header {
+                color: white;
+            }
+
+            .headline {
+                font-size: 1.5rem;
+                line-height: 1.75rem;
+                font-weight: 700;
+            }
+
+            .byline {
+                padding-top: 1rem;
+                color: #eee;
+
+                i {
+                    margin-left: 1em;
+                }
+            }
+        }
+
+        .top-3 {
+            @extend .top-2;
+            background: url("../assets/top3.jpg") 0 0 / cover no-repeat;
+            grid-area: top3;
+        }
+    }
 }
 
 @media all and (max-width: 1024px) and (min-width: 769px) {
