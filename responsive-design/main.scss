@@ -87,6 +87,10 @@ body {
             color: #ccc;
             border-left: 1px solid #ccc;
         }
+
+        .mobile-only {
+            display: none;
+        }
     }
 
     .announcement {
@@ -120,6 +124,34 @@ main {
 
                 a:first-of-type {
                     padding-left: 122px;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .top-nav {
+        display: none;
+    }
+
+    .sticky-nav {
+        .flex-wrapper {
+            .left {
+                .hidden {
+                    display: block;
+                }
+
+                a {
+                    display: none;
+                }
+            }
+
+            .mobile-only {
+                display: inline;
+
+                i {
+                    color: red;
                 }
             }
         }
