@@ -8,8 +8,6 @@ body {
     font: 14px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-// TODO: media queries: @1024, @768
-
 .top-nav {
     position: relative;
     background: black;
@@ -154,6 +152,10 @@ main {
                     color: red;
                 }
             }
+        }
+
+        .announcement {
+            height: 3.5em;
         }
     }
 }
