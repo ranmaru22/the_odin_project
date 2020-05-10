@@ -6,33 +6,56 @@
 
 body {
     font: 14px/21px "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 
 // TODO: media queries: @1024, @768
 
-header {
+.top-nav {
     position: relative;
+    background: black;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .top-nav {
-        background: black;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    a {
+        color: #aaa;
+        text-decoration: none;
+        padding: 0 5px;
 
-        a {
-            color: #aaa;
-            text-decoration: none;
-            padding: 0 5px;
-
-            &:hover {
-                color: white;
-            }
+        &:hover {
+            color: white;
         }
     }
+
+}
+
+.sticky-nav {
+    position: sticky;
+    background: white;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        color: #ccc;
+        text-decoration: none;
+        padding: 0 5px;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    i {
+        font-size: 1.5em;
+        padding: 15px;
+        color: #ccc;
+        border-left: 1px solid #ccc;
+    }
+}
+
+main {
+    height: 10000px;
 }
