@@ -42,29 +42,40 @@ body {
     position: sticky;
     background: white;
     top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    a {
-        color: #ccc;
-        text-decoration: none;
-        padding: 0 5px;
+    .flex-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &:hover {
-            color: black;
+        a {
+            color: #ccc;
+            text-decoration: none;
+            padding: 0 5px;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        a:first-of-type {
+            padding-left: 15px;
+        }
+
+        i {
+            font-size: 1.5em;
+            padding: 15px;
+            color: #ccc;
+            border-left: 1px solid #ccc;
         }
     }
 
-    a:first-of-type {
+    .announcement {
+        background: #fd3;
+        height: 2em;
         padding-left: 15px;
-    }
-
-    i {
-        font-size: 1.5em;
-        padding: 15px;
-        color: #ccc;
-        border-left: 1px solid #ccc;
+        display: flex;
+        align-items: center;
     }
 }
 
