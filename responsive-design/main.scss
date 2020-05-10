@@ -28,6 +28,14 @@ body {
         }
     }
 
+    a:first-of-type {
+        padding-left: 15px;
+    }
+
+    a:last-of-type {
+        padding-right: 15px;
+    }
+
 }
 
 .sticky-nav {
@@ -46,6 +54,10 @@ body {
         &:hover {
             color: black;
         }
+    }
+
+    a:first-of-type {
+        padding-left: 15px;
     }
 
     i {
