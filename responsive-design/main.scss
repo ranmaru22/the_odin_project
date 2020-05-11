@@ -232,6 +232,38 @@ main {
                 }
             }
         }
+
+        .funding {
+            display: block;
+            width: 98%;
+            max-width: 1280px;
+            margin: 100px 10px 10px;
+
+            .fund-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                h2 {
+                    font-size: 2em;
+                    color: red;
+                }
+
+                .links {
+                    font-size: 1.1em;
+                    color: red;
+
+                    a {
+                        color: red;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
