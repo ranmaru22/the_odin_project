@@ -247,6 +247,7 @@ main {
                 h2 {
                     font-size: 2em;
                     color: red;
+                    margin-left: 10px;
                 }
 
                 .links {
@@ -259,6 +260,69 @@ main {
 
                         &:hover {
                             color: black;
+                        }
+                    }
+                }
+            }
+
+            .fund-cards {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+                max-width: 1280px;
+                margin: 30px 10px 10px;
+
+                .card {
+                    display: grid;
+                    grid-template-columns: auto;
+                    grid-template-rows: repeat(3, auto);
+
+                    .card-header {
+                        position: relative;
+
+                        img {
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            min-height: 60px;
+                            max-height: 60px;
+                        }
+
+                        h3 {
+                            padding: 10px 0 10px 80px;
+                            background: red;
+                            color: white;
+                        }
+
+                        .subheader {
+                            padding: 10px 0 10px 80px;
+                            background: mistyrose;
+
+                            .value {
+                                font-weight: 700;
+                                font-size: 1.2em;
+                            }
+
+                            .type {
+                                color: #888;
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+
+                    .card-body {
+                        background: #fee;
+                        color: #555;
+                        padding: 10px 10px 10px 25px;
+                        font-size: 0.9em;
+                    }
+
+                    .card-info {
+                        @extend .card-body;
+                        border-top: 1px solid #faa;
+
+                        .credits {
+                            color: #aaa;
                         }
                     }
                 }
