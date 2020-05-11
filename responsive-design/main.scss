@@ -289,6 +289,16 @@ main {
                 }
             }
         }
+
+        .section-wrapper {
+            .latest-news {
+                grid-template-columns: repeat(3, 1fr);
+
+                h3 {
+                    font-size: 1em;
+                }
+            }
+        }
     }
 }
 
