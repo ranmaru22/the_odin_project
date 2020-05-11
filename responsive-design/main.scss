@@ -258,6 +258,14 @@ main {
                         color: red;
                         text-decoration: none;
 
+                        &::after {
+                            content: " | ";
+                        }
+
+                        &:last-of-type::after {
+                            content: "";
+                        }
+
                         &:hover {
                             color: black;
                         }
@@ -513,6 +521,29 @@ main {
                 }
 
 
+            }
+
+            .funding {
+                .fund-header {
+                    display: block;
+
+                    .links {
+                        margin: 10px 10px 0;
+
+                        a {
+                            padding: 5px 0;
+                            display: block;
+
+                            &::after {
+                                content: "";
+                            }
+                        }
+                    }
+                }
+
+                .fund-cards {
+                    grid-template-columns: auto;
+                }
             }
         }
     }
