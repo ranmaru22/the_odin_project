@@ -648,6 +648,10 @@ body {
 
         .categories {
             grid-template-columns: auto;
+
+            .category {
+                grid-template-rows: auto 500px auto auto;
+            }
         }
     }
 }
