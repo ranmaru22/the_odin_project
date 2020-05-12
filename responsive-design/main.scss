@@ -461,61 +461,63 @@ body {
         }
     }
 
-    main {
-        .top-articles {
-            .top-1 {
-                background: linear-gradient(to top, black, transparent 60%),
-                    url("../assets/top1.jpg") 0 0 / cover no-repeat;
+    .top-articles {
+        .top-1 {
+            background: linear-gradient(to top, black, transparent 60%),
+                url("../assets/top1.jpg") 0 0 / cover no-repeat;
 
-                .article-logo,
-                .date {
-                    visibility: hidden;
-                }
-
-                .article-header {
-                    .headline {
-                        font-size: 2.5rem;
-                        line-height: 2.75rem;
-                    }
-                }
+            .article-logo,
+            .date {
+                visibility: hidden;
             }
 
-            .top-2 {
-                .article-header {
-                    .headline {
-                        font-size: 1.2rem;
-                        line-height: 1.4rem;
-                    }
+            .article-header {
+                .headline {
+                    font-size: 2.5rem;
+                    line-height: 2.75rem;
                 }
             }
         }
 
-        .section-wrapper {
-            .latest-news {
+        .top-2 {
+            .article-header {
+                .headline {
+                    font-size: 1.2rem;
+                    line-height: 1.4rem;
+                }
+            }
+        }
+    }
+
+    .section-wrapper {
+        .latest-news {
+            grid-template-columns: repeat(3, 1fr);
+
+            h3 {
+                font-size: 1em;
+            }
+        }
+
+        .funding {
+            .fund-header {
+                display: block;
+
+                .links {
+                    margin: 10px 10px 0;
+                }
+            }
+
+            .fund-cards {
                 grid-template-columns: repeat(3, 1fr);
 
-                h3 {
-                    font-size: 1em;
+                .card:nth-of-type(n + 4) {
+                    display: none;
                 }
             }
+        }
 
-            .funding {
-                .fund-header {
-                    display: block;
-
-                    .links {
-                        margin: 10px 10px 0;
-                    }
-                }
-
-                .fund-cards {
-                    grid-template-columns: repeat(3, 1fr);
-
-                    .card:nth-of-type(n + 4) {
-                        display: none;
-                    }
-                }
-            }
+        .categories {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 }
@@ -551,99 +553,101 @@ body {
         }
     }
 
-    main {
-        .top-articles {
-            grid-template-columns: auto;
-            grid-template-rows: repeat(3, 30vh);
-            grid-template-areas:
-                "top1"
-                "top2"
-                "top3";
-            padding: 10px;
-            min-height: 90vh;
-            gap: 10px;
+    .top-articles {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, 30vh);
+        grid-template-areas:
+            "top1"
+            "top2"
+            "top3";
+        padding: 10px;
+        min-height: 90vh;
+        gap: 10px;
 
-            .top-1 {
-                background: linear-gradient(to top, black, transparent 60%),
-                    url("../assets/top1.jpg") 0 0 / cover no-repeat;
+        .top-1 {
+            background: linear-gradient(to top, black, transparent 60%),
+                url("../assets/top1.jpg") 0 0 / cover no-repeat;
 
-                .article-logo,
-                .date {
-                    visibility: hidden;
+            .article-logo,
+            .date {
+                visibility: hidden;
+            }
+        }
+
+        .top-1,
+        .top-2 {
+            .article-header {
+                .headline {
+                    font-size: 1.25rem;
+                    line-height: 1.5rem;
                 }
             }
+        }
+    }
 
-            .top-1,
-            .top-2 {
-                .article-header {
-                    .headline {
-                        font-size: 1.25rem;
-                        line-height: 1.5rem;
-                    }
+    .section-wrapper {
+        .latest-news {
+            grid-template-columns: 1fr;
+            width: 100%;
+
+            h2 {
+                margin-left: 15px;
+            }
+
+            article {
+                display: grid;
+                padding: 0 15px;
+                grid-template-areas:
+                    "img title"
+                    "img byline";
+                justify-content: start;
+                align-items: start;
+                gap: 5px;
+
+                img {
+                    grid-area: img;
+                    width: 75px;
+                    height: 75px;
+                }
+
+                h3 {
+                    grid-area: title;
+                    font-size: 1em;
+                    align-self: start;
+                }
+
+                .byline {
+                    grid-area: byline;
+                    align-self: start;
                 }
             }
         }
 
-        .section-wrapper {
-            .latest-news {
-                grid-template-columns: 1fr;
-                width: 100%;
+        .funding {
+            .fund-header {
+                display: block;
 
-                h2 {
-                    margin-left: 15px;
-                }
+                .links {
+                    margin: 10px 10px 0;
 
-                article {
-                    display: grid;
-                    padding: 0 15px;
-                    grid-template-areas:
-                        "img title"
-                        "img byline";
-                    justify-content: start;
-                    align-items: start;
-                    gap: 5px;
+                    a {
+                        padding: 5px 0;
+                        display: block;
 
-                    img {
-                        grid-area: img;
-                        width: 75px;
-                        height: 75px;
-                    }
-
-                    h3 {
-                        grid-area: title;
-                        font-size: 1em;
-                        align-self: start;
-                    }
-
-                    .byline {
-                        grid-area: byline;
-                        align-self: start;
-                    }
-                }
-            }
-
-            .funding {
-                .fund-header {
-                    display: block;
-
-                    .links {
-                        margin: 10px 10px 0;
-
-                        a {
-                            padding: 5px 0;
-                            display: block;
-
-                            &::after {
-                                content: "";
-                            }
+                        &::after {
+                            content: "";
                         }
                     }
                 }
-
-                .fund-cards {
-                    grid-template-columns: auto;
-                }
             }
+
+            .fund-cards {
+                grid-template-columns: auto;
+            }
+        }
+
+        .categories {
+            grid-template-columns: auto;
         }
     }
 }
