@@ -33,7 +33,6 @@ body {
     a:last-of-type {
         padding-right: 15px;
     }
-
 }
 
 .sticky-nav {
@@ -100,80 +99,48 @@ body {
     }
 }
 
-main {
-    .top-articles {
+.top-articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "top1    top1    top2"
+        "top1    top1    top3";
+    padding: 10px;
+    gap: 10px;
+    height: 75vh;
+    max-height: 560px;
+
+    .top-1 {
+        background: linear-gradient(170deg, #f00, transparent 70%),
+            linear-gradient(to top, black, transparent 60%),
+            url("../assets/top1.jpg") 0 0 / cover no-repeat;
+        grid-area: top1;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas:
-            "top1    top1    top2"
-            "top1    top1    top3";
-        padding: 10px;
-        gap: 10px;
-        height: 75vh;
-        max-height: 560px;
+        grid-template-columns: repeat(2, 1fr);
+        align-content: space-between;
+        padding: 10px 20px;
 
-        .top-1 {
-            background:
-                linear-gradient(170deg, #f00, transparent 70%),
-                linear-gradient(to top, black, transparent 60%),
-                url("../assets/top1.jpg") 0 0 / cover no-repeat;
-            grid-area: top1;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            align-content: space-between;
-            padding: 10px 20px;
-
-            .article-logo {
-                color: white;
-                font-size: 72px;
-                margin-top: 25px;
-                justify-self: start;
-                align-self: flex-start;
-            }
-
-            .date {
-                color: white;
-                justify-self: end;
-            }
-
-            .article-header {
-                color: white;
-                grid-column: 1 / span 2;
-
-                .headline {
-                    font-size: 3rem;
-                    line-height: 3.25rem;
-                    font-weight: 700;
-                }
-
-                .byline {
-                    padding-top: 1rem;
-                    color: #aaa;
-
-                    i {
-                        margin-left: 1em;
-                    }
-                }
-            }
+        .article-logo {
+            color: white;
+            font-size: 72px;
+            margin-top: 25px;
+            justify-self: start;
+            align-self: flex-start;
         }
 
-        .top-2 {
-            background:
-                linear-gradient(to top, black, transparent 60%),
-                url("../assets/top2.jpg") 0 0 / cover no-repeat;
-            grid-area: top2;
-            display: grid;
-            align-items: end;
-            padding: 15px;
+        .date {
+            color: white;
+            justify-self: end;
+        }
 
-            .article-header {
-                color: white;
-            }
+        .article-header {
+            color: white;
+            grid-column: 1 / span 2;
 
             .headline {
-                font-size: 1.5rem;
-                line-height: 1.75rem;
+                font-size: 3rem;
+                line-height: 3.25rem;
                 font-weight: 700;
             }
 
@@ -186,85 +153,249 @@ main {
                 }
             }
         }
+    }
 
-        .top-3 {
-            @extend .top-2;
-            background:
-                linear-gradient(to top, black, transparent 60%),
-                url("../assets/top3.jpg") 0 0 / cover no-repeat;
-            grid-area: top3;
+    .top-2 {
+        background: linear-gradient(to top, black, transparent 60%),
+            url("../assets/top2.jpg") 0 0 / cover no-repeat;
+        grid-area: top2;
+        display: grid;
+        align-items: end;
+        padding: 15px;
+
+        .article-header {
+            color: white;
+        }
+
+        .headline {
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+        }
+
+        .byline {
+            padding-top: 1rem;
+            color: #aaa;
+
+            i {
+                margin-left: 1em;
+            }
         }
     }
 
-    .section-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .top-3 {
+        @extend .top-2;
+        background: linear-gradient(to top, black, transparent 60%),
+            url("../assets/top3.jpg") 0 0 / cover no-repeat;
+        grid-area: top3;
+    }
+}
 
-        .latest-news {
+.section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .latest-news {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        max-width: 1280px;
+        margin: 100px 10px 10px;
+
+        h2 {
+            grid-column: 1/-1;
+            font-size: 2em;
+            margin: 10px 0;
+            color: red;
+            align-self: start;
+        }
+
+        article {
+            img {
+                width: 100%;
+                max-width: 405px;
+                height: 190px;
+                overflow: hidden;
+                object-fit: cover;
+            }
+
+            .byline {
+                font-size: 0.9em;
+                padding-top: 0.5rem;
+                color: #aaa;
+            }
+        }
+    }
+
+    .funding {
+        display: block;
+        width: 98%;
+        max-width: 1280px;
+        margin: 100px 10px 10px;
+
+        .fund-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            h2 {
+                font-size: 2em;
+                color: red;
+                margin-left: 10px;
+            }
+
+            .links {
+                font-size: 1.1em;
+                color: red;
+
+                a {
+                    color: red;
+                    text-decoration: none;
+
+                    &::after {
+                        content: " | ";
+                    }
+
+                    &:last-of-type::after {
+                        content: "";
+                    }
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+        }
+
+        .fund-cards {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             max-width: 1280px;
-            margin: 100px 10px 10px;
+            margin: 30px 10px 10px;
 
-            h2 {
-                grid-column: 1/-1;
-                font-size: 2em;
-                margin: 10px 0;
-                color: red;
-                align-self: start;
-            }
+            .card {
+                display: grid;
+                grid-template-rows: auto auto 1fr;
 
-            article {
-                img {
-                    width: 100%;
-                    max-width: 405px;
-                    height: 190px;
-                    overflow: hidden;
-                    object-fit: cover;
+                .card-header {
+                    position: relative;
+
+                    img {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        min-height: 60px;
+                        max-height: 60px;
+                    }
+
+                    h3 {
+                        padding: 10px 0 10px 80px;
+                        background: red;
+                        color: white;
+                    }
+
+                    .subheader {
+                        padding: 10px 0 10px 80px;
+                        background: mistyrose;
+
+                        .value {
+                            font-weight: 700;
+                            font-size: 1.2em;
+                        }
+
+                        .type {
+                            color: #888;
+                            font-size: 0.8em;
+                        }
+                    }
                 }
 
-                .byline {
+                .card-body {
+                    background: #fee;
+                    color: #555;
+                    padding: 10px 10px 10px 25px;
                     font-size: 0.9em;
-                    padding-top: 0.5rem;
-                    color: #aaa;
+                }
+
+                .card-info {
+                    @extend .card-body;
+                    border-top: 1px solid #faa;
+
+                    .credits {
+                        color: #aaa;
+                    }
                 }
             }
         }
+    }
 
-        .funding {
-            display: block;
-            width: 98%;
-            max-width: 1280px;
-            margin: 100px 10px 10px;
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 1280px;
+        margin: 30px 10px 10px;
 
-            .fund-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
+        h2 {
+            color: red;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
 
-                h2 {
-                    font-size: 2em;
-                    color: red;
-                    margin-left: 10px;
+        .category {
+            margin-left: 15px;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto 300px auto auto;
+
+            .popular {
+                display: grid;
+                align-items: end;
+                padding: 15px;
+
+                .article-type {
+                    color: white;
                 }
 
-                .links {
-                    font-size: 1.1em;
-                    color: red;
+                .article-header {
+                    .headline {
+                        color: white;
+                        font-size: 1.5em;
+                    }
+                    .byline {
+                        margin-top: 0.5em;
+                        font-size: 0.9em;
+                        color: #aaa;
+                    }
+                }
+            }
+
+            .latest {
+                background: mistyrose;
+                color: red;
+                padding: 10px;
+                line-height: 1.25em;
+
+                .headline {
+                    margin-top: 0.5em;
+                    font-weight: 700;
+                }
+            }
+
+            .list {
+                list-style-position: inside;
+                color: red;
+
+                ul > li {
+                    border-bottom: 1px solid #ccc;
+                    padding: 5px 0;
 
                     a {
-                        color: red;
+                        color: #444;
+                        font-size: 0.9em;
                         text-decoration: none;
-
-                        &::after {
-                            content: " | ";
-                        }
-
-                        &:last-of-type::after {
-                            content: "";
-                        }
 
                         &:hover {
                             color: black;
@@ -272,68 +403,11 @@ main {
                     }
                 }
             }
+        }
 
-            .fund-cards {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
-                max-width: 1280px;
-                margin: 30px 10px 10px;
-
-                .card {
-                    display: grid;
-                    grid-template-rows: auto auto 1fr;
-
-                    .card-header {
-                        position: relative;
-
-                        img {
-                            position: absolute;
-                            top: 10px;
-                            left: 10px;
-                            min-height: 60px;
-                            max-height: 60px;
-                        }
-
-                        h3 {
-                            padding: 10px 0 10px 80px;
-                            background: red;
-                            color: white;
-                        }
-
-                        .subheader {
-                            padding: 10px 0 10px 80px;
-                            background: mistyrose;
-
-                            .value {
-                                font-weight: 700;
-                                font-size: 1.2em;
-                            }
-
-                            .type {
-                                color: #888;
-                                font-size: 0.8em;
-                            }
-                        }
-                    }
-
-                    .card-body {
-                        background: #fee;
-                        color: #555;
-                        padding: 10px 10px 10px 25px;
-                        font-size: 0.9em;
-                    }
-
-                    .card-info {
-                        @extend .card-body;
-                        border-top: 1px solid #faa;
-
-                        .credits {
-                            color: #aaa;
-                        }
-                    }
-                }
-            }
+        .cat-1 .popular {
+            background: linear-gradient(to top, black, transparent),
+                url("../assets/cat1.jpg") center / cover no-repeat;
         }
     }
 }
@@ -364,8 +438,7 @@ main {
     main {
         .top-articles {
             .top-1 {
-                background:
-                    linear-gradient(to top, black, transparent 60%),
+                background: linear-gradient(to top, black, transparent 60%),
                     url("../assets/top1.jpg") 0 0 / cover no-repeat;
 
                 .article-logo,
@@ -412,7 +485,7 @@ main {
                 .fund-cards {
                     grid-template-columns: repeat(3, 1fr);
 
-                    .card:nth-of-type(n+4) {
+                    .card:nth-of-type(n + 4) {
                         display: none;
                     }
                 }
@@ -453,7 +526,6 @@ main {
     }
 
     main {
-
         .top-articles {
             grid-template-columns: auto;
             grid-template-rows: repeat(3, 30vh);
@@ -466,8 +538,7 @@ main {
             gap: 10px;
 
             .top-1 {
-                background:
-                    linear-gradient(to top, black, transparent 60%),
+                background: linear-gradient(to top, black, transparent 60%),
                     url("../assets/top1.jpg") 0 0 / cover no-repeat;
 
                 .article-logo,
@@ -523,8 +594,6 @@ main {
                         align-self: start;
                     }
                 }
-
-
             }
 
             .funding {
