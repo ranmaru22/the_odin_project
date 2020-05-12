@@ -412,7 +412,7 @@ main {
                 .fund-cards {
                     grid-template-columns: repeat(3, 1fr);
 
-                    .card:last-of-type {
+                    .card:nth-of-type(n+4) {
                         display: none;
                     }
                 }
