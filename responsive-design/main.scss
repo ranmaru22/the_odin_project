@@ -527,6 +527,10 @@ footer {
     text-align: center;
     margin-top: 50px;
 
+    i {
+        text-rendering: optimizeLegibility;
+    }
+
     .footer-links {
         background: #222;
         padding: 3em 0 2em;

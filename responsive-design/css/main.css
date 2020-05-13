@@ -519,6 +519,10 @@ footer {
   margin-top: 50px;
 }
 
+footer i {
+  text-rendering: optimizeLegibility;
+}
+
 footer .footer-links {
   background: #222;
   padding: 3em 0 2em;
