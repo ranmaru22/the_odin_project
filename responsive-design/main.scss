@@ -492,6 +492,28 @@ body {
                     }
                 }
             }
+
+            .deals-2,
+            .deals-3,
+            .deals-4 {
+                position: relative;
+
+                .discount {
+                    position: absolute;
+                    top: -1px;
+                    right: -1px;
+                    background: gold;
+                    width: 80px;
+                    height: 80px;
+                    font-weight: 800;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+                    .text {
+                        transform:
+                            rotate(45deg) translate(30px, 10px);
+                    }
+                }
+            }
         }
     }
 }
