@@ -603,6 +603,12 @@ body {
         .categories {
             grid-template-columns: repeat(2, 1fr);
         }
+
+        .deals {
+            .deals-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
     }
 }
 
@@ -735,6 +741,43 @@ body {
 
             .category {
                 grid-template-rows: auto 500px auto auto;
+            }
+        }
+
+        .deals {
+            .deals-cards {
+                grid-template-columns: auto;
+
+                .deal-card {
+                    display: grid;
+                    grid-template-areas:
+                        "img title"
+                        "img price";
+                    justify-content: start;
+                    align-items: start;
+                    gap: 5px;
+
+                    .discount {
+                        display: none;
+                    }
+
+                    img {
+                        grid-area: img;
+                        width: 75px;
+                        height: 75px;
+                        object-fit: cover;
+                    }
+
+                    h3 {
+                        grid-area: title;
+                        font-size: 1em;
+                    }
+
+                    .price {
+                        grid-area: price;
+                        font-size: 0.9em;
+                    }
+                }
             }
         }
     }
