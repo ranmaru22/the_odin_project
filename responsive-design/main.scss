@@ -436,6 +436,64 @@ body {
                 url("../assets/cat6.jpg") center / cover no-repeat;
         }
     }
+
+    .deals {
+        display: block;
+        width: 98%;
+        max-width: 1280px;
+        margin: 50px 10px 10px;
+
+        .latest-deals {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            h2 {
+                font-size: 2em;
+                color: red;
+                margin-left: 10px;
+            }
+
+            a {
+                color: red;
+                text-decoration: none;
+
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+
+        .deals-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 98%;
+            max-width: 1280px;
+            margin: 10px;
+
+            .deal-card {
+                margin-top: 15px;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .price {
+                    .old-price {
+                        text-decoration: line-through;
+                        color: #ccc;
+                    }
+
+                    .new-price {
+                        font-size: 1.2em;
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media all and (max-width: 1024px) and (min-width: 769px) {
