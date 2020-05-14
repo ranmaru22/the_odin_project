@@ -1,0 +1,31 @@
+body {
+    font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
+    background: #eee;
+}
+
+
+.top-bar {
+    background-color: #f72210;
+    color: white;
+
+    .logo {
+        width: 400px;
+        height: 60px;
+        fill: white;
+    }
+
+    .subscribe-btn {
+        background-color: white;
+        color: #f72210;
+    }
+
+}
+
+.nav-bar,
+.content {
+    background: white;
+}
+
+.border-2 {
+    border-width: 2px !important;
+}
