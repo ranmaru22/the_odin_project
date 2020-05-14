@@ -1,8 +1,13 @@
-@media (min-width: 1200px) {
-    .container-xl {
-        max-width: 1310px;
-    }
-}
+// @media (min-width: 1200px) {
+//     .container-xl {
+//         max-width: 1310px;
+//     }
+// }
+
+$grid-breakpoints: (xs: 0,
+    sm: 480px,
+    md: 768px,
+    lg: 1310px);
 
 body {
     font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
@@ -16,6 +21,12 @@ body {
     .logo {
         width: 400px;
         height: 60px;
+        fill: white;
+    }
+
+    .logo-small {
+        width: 200px;
+        height: 30px;
         fill: white;
     }
 
