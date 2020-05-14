@@ -9,7 +9,6 @@ body {
     background: #eee;
 }
 
-
 .top-bar {
     background-color: #f72210;
     color: white;
@@ -24,7 +23,6 @@ body {
         background-color: white;
         color: #f72210;
     }
-
 }
 
 .nav-bar,
@@ -86,7 +84,7 @@ body {
 .big-n-logo {
     width: 1.5em;
     height: 1.3em;
-    padding-top: .1em;
+    padding-top: 0.1em;
     text-align: center;
     background-color: #f72210;
 }
@@ -103,8 +101,6 @@ body {
         object-fit: cover;
     }
 }
-
-
 
 .color-red {
     color: #f72210 !important;
