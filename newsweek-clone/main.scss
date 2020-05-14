@@ -28,7 +28,8 @@ body {
 }
 
 .nav-bar,
-.content {
+.content-top,
+.content-magazine {
     background: white;
 }
 
@@ -89,4 +90,17 @@ body {
     width: 40%;
     background-color: #666;
     color: white;
+}
+
+.content-magazine .img-crop {
+    height: 312px;
+    object-fit: cover;
+}
+
+.color-red {
+    color: #f72210 !important;
+}
+
+.bg-red {
+    background-color: #f72210 !important;
 }
