@@ -53,9 +53,16 @@ body {
 }
 
 .debate {
-    img {
+    .deb-img {
         width: 95px;
         height: 95px;
         object-fit: cover;
+    }
+
+    .arc-img {
+        right: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+        width: 60px;
     }
 }
