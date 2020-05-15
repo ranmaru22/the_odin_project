@@ -34,7 +34,9 @@ body {
 .nav-bar,
 .content-top,
 .content-magazine,
-.content-edpicks .content-news {
+.content-edpicks,
+.content-news,
+.promotions {
     background: white;
 }
 
@@ -129,6 +131,24 @@ body {
     .img-side {
         width: 100px;
     }
+}
+
+.promotions {
+    .mag-covers {
+        .cover-front {
+            position: absolute;
+            top: 1em;
+            left: 5em;
+            z-index: 2;
+        }
+    }
+
+    .newsletter-img {
+        height: 100%;
+        width: 200px;
+        object-fit: contain;
+    }
+
 }
 
 .color-red {
