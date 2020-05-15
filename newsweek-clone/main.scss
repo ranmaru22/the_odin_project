@@ -1,13 +1,8 @@
-// @media (min-width: 1200px) {
-//     .container-xl {
-//         max-width: 1310px;
-//     }
-// }
-
-$grid-breakpoints: (xs: 0,
-    sm: 480px,
-    md: 768px,
-    lg: 1310px);
+@media (min-width: 1200px) {
+    .container-xl {
+        max-width: 1310px;
+    }
+}
 
 body {
     font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
@@ -119,4 +114,13 @@ body {
 
 .bg-red {
     background-color: #f72210 !important;
+}
+
+@media all and (max-width: 992px) {
+    .content-magazine {
+        .img-crop {
+            height: 200px;
+            object-fit: cover;
+        }
+    }
 }
