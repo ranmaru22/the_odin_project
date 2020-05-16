@@ -177,4 +177,12 @@ footer {
             object-fit: cover;
         }
     }
+
+    .promotions {
+        .newsletter-img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
 }
