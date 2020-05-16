@@ -36,7 +36,8 @@ body {
 .content-magazine,
 .content-edpicks,
 .content-news,
-.promotions {
+.promotions,
+footer {
     background: white;
 }
 
@@ -157,6 +158,16 @@ body {
 
 .bg-red {
     background-color: #f72210 !important;
+}
+
+.footer-logo {
+    svg {
+        fill: #f72210;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
 }
 
 @media all and (max-width: 992px) {
