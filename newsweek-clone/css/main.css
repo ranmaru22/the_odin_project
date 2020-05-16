@@ -1,0 +1,170 @@
+@media (min-width: 1200px) {
+  .container-xl {
+    max-width: 1310px;
+  }
+}
+
+body {
+  font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
+  background: #eee;
+}
+
+.top-bar {
+  background-color: #f72210;
+  color: white;
+}
+
+.top-bar .logo {
+  width: 400px;
+  height: 60px;
+  fill: white;
+}
+
+.top-bar .logo-small {
+  width: 200px;
+  height: 30px;
+  fill: white;
+}
+
+.top-bar .subscribe-btn {
+  background-color: white;
+  color: #f72210;
+}
+
+.nav-bar,
+.content-top,
+.content-magazine,
+.content-edpicks,
+.content-news,
+.promotions,
+footer {
+  background: white;
+}
+
+.border-2 {
+  border-width: 2px !important;
+}
+
+.border-4 {
+  border-width: 4px !important;
+}
+
+.border-red {
+  border-color: #f72210 !important;
+}
+
+.border-blue {
+  border-color: #4087f7 !important;
+}
+
+.featured-stories p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.debate .deb-img {
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+}
+
+.debate .arc-img {
+  right: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 60px;
+}
+
+.heroes,
+.culture,
+.more-stories {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.heroes p,
+.culture p,
+.more-stories p {
+  font-size: 0.9em;
+}
+
+.big-n-logo {
+  width: 1.5em;
+  height: 1.3em;
+  padding-top: 0.1em;
+  text-align: center;
+  background-color: #f72210;
+}
+
+.newsletter-btn {
+  width: 40%;
+  background-color: #666;
+  color: white;
+}
+
+.content-magazine .img-crop {
+  height: 312px;
+  object-fit: cover;
+}
+
+.content-magazine .cat-float {
+  position: absolute;
+  bottom: 1.8em;
+}
+
+.content-edpicks .cat-float {
+  position: absolute;
+  bottom: -3px;
+}
+
+.content-edpicks p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+}
+
+.content-news img {
+  object-fit: cover;
+}
+
+.content-news .img-side {
+  width: 100px;
+}
+
+.promotions .mag-covers .cover-front {
+  position: absolute;
+  top: 1em;
+  left: 5em;
+  z-index: 2;
+}
+
+.promotions .newsletter-img {
+  height: 100%;
+  width: 200px;
+  object-fit: contain;
+}
+
+.color-red {
+  color: #f72210 !important;
+}
+
+.bg-red {
+  background-color: #f72210 !important;
+}
+
+.footer-logo svg {
+  fill: #f72210;
+}
+
+.footer-logo p {
+  font-size: 0.8em;
+}
+
+@media all and (max-width: 992px) {
+  .content-magazine .img-crop {
+    height: 200px;
+    object-fit: cover;
+  }
+  .promotions .newsletter-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
