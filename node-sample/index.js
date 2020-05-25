@@ -4,9 +4,9 @@ const fs = require("fs");
 
 http.createServer((req, res) => {
     const filePath = url.parse(req.url, true).pathname === "/"
-        ? "./index"
-        : `.${url.parse(req.url, true).pathname}`;
-    fs.readFile(`${filePath}.html`, (err, file) => {
+        ? "index"
+        : url.parse(req.url, true).pathname;
+    fs.readFile(`./${filePath}.html`, (err, file) => {
         if (err) {
             res.writeHead(404, { "Content-Type": "text/html" });
             return fs.readFile("./404.html", (err, file) => {
