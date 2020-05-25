@@ -3,7 +3,10 @@ const url = require("url");
 const fs = require("fs");
 
 http.createServer((req, res) => {
-    const filePath = `.${url.parse(req.url, true).pathname}`;
+    const filePath = url.parse(req.url, true).pathname === "/"
+        ? "./index.html"
+        : `.${url.parse(req.url, true).pathname}`;
+    console.log(filePath);
     fs.readFile(filePath, (err, file) => {
         if (err) {
             res.writeHead(404, { "Content-Type": "text/html" });
@@ -21,4 +24,4 @@ http.createServer((req, res) => {
             return res.end();
         }
     });
-});
+}).listen(8080);
